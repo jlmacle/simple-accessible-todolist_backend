@@ -1,5 +1,6 @@
 package jl.forthem.controllers;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,14 +24,16 @@ public class CategoryController {
 	@PostMapping("/category")
 	public Category addCategory(@RequestBody Category category) {
 		System.err.println(category);
-		System.out.println("************"+category.toString());
+		System.out.println("Category: "+category.toString());
 		return repository.save(category);
 	}
 	
 	
 	@GetMapping("/categories")
 	public List<Category> getCategories(){
-		return repository.findAll();
+		List<Category> list = repository.findAll();
+		Collections.sort(list);
+		return list;
 	}
 	
 	

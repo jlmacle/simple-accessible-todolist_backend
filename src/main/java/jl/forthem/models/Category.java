@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="category")
-public class Category {	
+public class Category implements Comparable {	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -48,6 +48,11 @@ public class Category {
 	@Override
 	public String toString() {
 		return "Category [id=" + id + ", name=" + name + "]";
+	}
+
+	public int compareTo(Object category) {
+		return this.getName().compareTo(((Category)category).getName());
+		
 	}
 	
 	
