@@ -8,11 +8,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Categories")
+@Table(name="category")
 public class Category {	
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
 	@Column(name="name")
@@ -45,7 +45,10 @@ public class Category {
 	}
 	
 	
-	
+	@Override
+	public String toString() {
+		return "Category [id=" + id + ", name=" + name + "]";
+	}
 	
 	
 
