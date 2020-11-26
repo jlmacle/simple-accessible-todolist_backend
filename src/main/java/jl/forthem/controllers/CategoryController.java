@@ -21,7 +21,7 @@ import jl.forthem.repositories.CategoryRepository;
 @CrossOrigin(origins="http://localhost:4200")
 @RestController
 public class CategoryController {
-	//Logger logger = Logger.getLogger("CategoryController");
+	Logger logger = Logger.getLogger("CategoryController");
 		
 	@Autowired
 	CategoryRepository repository;
@@ -29,10 +29,9 @@ public class CategoryController {
 	
 	@PostMapping("/category")
 	public Category addCategory(@RequestBody Category category) {
-		System.out.println("Category: "+category.toString());
+		logger.log(Level.ALL,"Category: "+category.toString(), new Object());
 		return repository.save(category);
-	}
-	
+	}	
 	
 	@SuppressWarnings("unchecked")
 	@GetMapping("/categories")
@@ -41,10 +40,10 @@ public class CategoryController {
 		Collections.sort(list);
 		return list;
 	}
-	//TODO: CHECK ON SYNTAX
+	
 	@DeleteMapping("/categories/{id}")
 	public void deleteCategory(@PathVariable("id") Integer id) {
-		System.out.println("Deletion of category: id:"+id);
+		logger.log(Level.ALL,"Deletion of category: id:"+id, new Object());
 		repository.deleteById(id);
 		
 	}
