@@ -26,8 +26,8 @@ public class ItemController {
 	
 	@PostMapping("/item/{id}")
 	public Item addItem(@RequestBody Item item, @PathVariable("id")Integer categoryId) {
-		System.out.println("Entering the addItem method");
-		logger.log(Level.ALL, "Adding an item:"+item.getName()+ "in relation to category: "+categoryId, new Object());
+		System.out.println("** Entering the addItem method. Adding an item:"+item.getName()+ " in relation to category id: "+categoryId);
+		//logger.log(Level.ALL, "Adding an item:"+item.getName()+ " in relation to category id: "+categoryId, new Object());
 		Item addedItem = new Item(item.getId(), item.getName(), categoryId);		
 		return repository.save(addedItem);
 	}

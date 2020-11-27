@@ -31,7 +31,7 @@ public class Category implements Comparable {
 	//An item (beyond a simple name description) belongs only to one category.
 	// The deletion of the category should not imply the deletion of the items.
 	// Those orphans items should be mapped to the category "Misc."
-	@OneToMany(targetEntity = Item.class, mappedBy = "item_id", orphanRemoval = false)	
+	@OneToMany(targetEntity = Item.class, mappedBy = "category_id", orphanRemoval = false)	
 	private List<Item> items;
 
 	protected Category() {

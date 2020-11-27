@@ -42,10 +42,10 @@ public class Item implements Comparable{
 		this.category_id = categoryId;
 	}
 	
-	public Item(Integer item_id, String name, Integer categoryId) {
+	public Item(Integer item_id, String item_name, Integer categoryId) {
 		super();
 		this.item_id = item_id;
-		this.item_name = name;
+		this.item_name = item_name;
 		this.category_id = categoryId;
 	}
 
