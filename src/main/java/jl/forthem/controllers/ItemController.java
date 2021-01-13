@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,12 +33,17 @@ public class ItemController {
 		return repository.save(addedItem);
 	}
 	
-	//TODO FOR TESTING PURPOSES
 	@GetMapping("/items")
 	public List<Item> getItems(){
 		List<Item> list = repository.findAll();
 		Collections.sort(list);
 		return list;
+	}
+	
+	@DeleteMapping("/items/{id}")
+	public void deleteItem(@PathVariable("id") Integer id) {
+		logger.log(Level.ALL,"Deletion of item: id:"+id, new Object());
+		repository.deleteById(id);		
 	}
 
 }
