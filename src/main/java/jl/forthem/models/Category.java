@@ -24,13 +24,6 @@ public class Category implements Comparable {
 	@Column(name="CATEGORY_NAME")
 	private String name;
 	
-	// Example using OneToMany
-	//https://github.com/spring-projects/spring-data-examples/blob/ccae97890f85a3eaf8f4e05a1a07696e2b1e78a4/rest/projections/src/main/java/example/springdata/rest/projections/Order.java
-	
-	//One category has many items. 
-	//An item (beyond a simple name description) belongs only to one category.
-	// The deletion of the category should not imply the deletion of the items.
-	// Those orphans items should be mapped to the category "Misc."
 	@OneToMany(targetEntity = Item.class, mappedBy = "category_id", orphanRemoval = false)	
 	private List<Item> items;
 
