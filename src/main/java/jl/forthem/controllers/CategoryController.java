@@ -33,8 +33,6 @@ public class CategoryController {
 		return repository.save(category);
 	}	
 	
-	//  Sample of potential category list returned after translation in JSON
-	//  [{"id":30,"name":"Joy","items":[]},{"id":31,"name":"Love","items":[]},{"id":1,"name":"Misc.","items":[{"name":"Item","id":2,"categoryId":1},{"name":"Item","id":3,"categoryId":1},{"name":"Item","id":4,"categoryId":1},{"name":"Item","id":5,"categoryId":1},{"name":"Item","id":6,"categoryId":1},{"name":"Item","id":7,"categoryId":1},{"name":"Item","id":8,"categoryId":1},{"name":"Item","id":9,"categoryId":1},{"name":"Item","id":10,"categoryId":1},{"name":"Item","id":11,"categoryId":1},{"name":"Item","id":12,"categoryId":1},{"name":"Item","id":13,"categoryId":1},{"name":"Item","id":14,"categoryId":1},{"name":"Item","id":15,"categoryId":1},{"name":"Item","id":16,"categoryId":1},{"name":"Item","id":22,"categoryId":1},{"name":"Item","id":23,"categoryId":1},{"name":"Item","id":24,"categoryId":1},{"name":"Item","id":25,"categoryId":1},{"name":"Item","id":26,"categoryId":1},{"name":"Item","id":27,"categoryId":1},{"name":"Item","id":28,"categoryId":1},{"name":"Item","id":29,"categoryId":1}]},{"id":17,"name":"Peace","items":[{"name":"Item","id":18,"categoryId":17},{"name":"Item","id":19,"categoryId":17},{"name":"Item","id":20,"categoryId":17},{"name":"Love","id":21,"categoryId":17}]}]
 	@SuppressWarnings("unchecked")
 	@GetMapping("/categories")
 	public List<Category> getCategories(){
