@@ -17,7 +17,6 @@ public class Item implements Comparable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)	
-	//  https://docs.oracle.com/javaee/7/api/javax/persistence/Column.html
 	@Column(name="ITEM_ID")
 	private Integer item_id;
 	
