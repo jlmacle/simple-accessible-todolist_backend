@@ -41,13 +41,13 @@ public class CategoryController {
 		return list;
 	}
 	
-	@DeleteMapping("/categories/{id}")
+	@DeleteMapping("/category/{id}")
 	public void deleteCategory(@PathVariable("id") Integer id) {
 		logger.log(Level.ALL,"Deletion of category: id:"+id, new Object());
 		repository.deleteById(id);		
 	}
 	
-	@GetMapping("/categories/{name}")
+	@GetMapping("/category/{name}")
 	public Category getCategoryByName(@PathVariable("name") String category_name) {
 		return (repository.findByName(category_name)).get(0);
 	}

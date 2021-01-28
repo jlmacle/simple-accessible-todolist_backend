@@ -39,7 +39,7 @@ public class ItemController {
 		return list;
 	}
 	
-	@DeleteMapping("/items/{id}")
+	@DeleteMapping("/item/{id}")
 	public void deleteItem(@PathVariable("id") Integer id) {
 		logger.log(Level.ALL,"Deletion of item: id:"+id, new Object());
 		repository.deleteById(id);		
