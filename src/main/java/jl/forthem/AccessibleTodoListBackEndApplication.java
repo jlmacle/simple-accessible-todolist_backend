@@ -15,11 +15,11 @@ public class AccessibleTodoListBackEndApplication {
 		SpringApplication.run(AccessibleTodoListBackEndApplication.class, args);
 	}
 	
-	//TODO: adding a Misc. category by default
+	
 	@Bean
 	public CommandLineRunner create_misc_category_at_startup(CategoryRepository repository) {
 		return (args) -> {
-			Category misc_category = new Category(1, "Misc.", null);
+			Category misc_category = new Category(1, "Uncategorized", null);
 			repository.save(misc_category);
 		};
 	}
