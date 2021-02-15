@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import jl.forthem.models.Category;
 import jl.forthem.repositories.CategoryRepository;
-
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="http://192.168.1.100:4200")
+//@CrossOrigin(origins="http://localhost:4200")
 @RestController
 public class CategoryController {
 	Logger logger = Logger.getLogger("CategoryController");

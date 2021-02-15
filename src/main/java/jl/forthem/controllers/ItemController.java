@@ -17,7 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 import jl.forthem.models.Item;
 import jl.forthem.repositories.ItemRepository;
 
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="http://192.168.1.100:4200")
+//@CrossOrigin(origins="http://localhost:4200")
 @RestController
 public class ItemController {
 	Logger logger = Logger.getLogger("Item");
