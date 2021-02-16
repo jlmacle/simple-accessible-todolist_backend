@@ -1,12 +1,13 @@
 package jl.forthem.controllers;
 
+import jl.forthem.Configuration;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.logging.Logger;
 import java.util.logging.Level;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,8 +18,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import jl.forthem.models.Category;
 import jl.forthem.repositories.CategoryRepository;
-@CrossOrigin(origins="http://192.168.1.100:4200")
-//@CrossOrigin(origins="http://localhost:4200")
+
+/*
+ Application that needed a rule in the firewall for the application to be accessed from 
+ another computer on the local network (with IP 192.168.1.101): 
+ ..../sts-4.8.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_15.0.0.v20201014-1246
+   \jre\bin\javaw.exe
+*/ 
+@CrossOrigin(origins=Configuration.FRONTEND_HOMEPAGE)
+
 @RestController
 public class CategoryController {
 	Logger logger = Logger.getLogger("CategoryController");
@@ -48,8 +56,8 @@ public class CategoryController {
 	}
 	
 	@GetMapping("/category/{name}")
-	public Category getCategoryByName(@PathVariable("name") String category_name) {
-		return (repository.findByName(category_name)).get(0);
+	public Category getCategoryByName(@PathVariable("name") String categoryName) {
+		return repository.findByName(categoryName).get(0);
 	}
 	
 	
