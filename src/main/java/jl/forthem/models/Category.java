@@ -2,10 +2,8 @@ package jl.forthem.models;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,7 +22,7 @@ public class Category implements Comparable {
 	@Column(name="CATEGORY_NAME")
 	private String name;
 	
-	@OneToMany(targetEntity = Item.class, mappedBy = "category_id", orphanRemoval = false)	
+	@OneToMany(targetEntity = Item.class, mappedBy = "categoryId", orphanRemoval = false)	
 	private List<Item> items;
 
 	protected Category() {

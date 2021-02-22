@@ -14,10 +14,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import jl.forthem.Configuration;
 import jl.forthem.models.Item;
 import jl.forthem.repositories.ItemRepository;
 
-@CrossOrigin(origins="http://localhost:4200")
+// Application that needed a rule in the firewall for the application to be accessed from 
+// another computer on the local network (with IP 192.168.1.101): 
+// ..../sts-4.8.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_15.0.0.v20201014-1246\jre\bin\javaw.exe
+@CrossOrigin(origins=Configuration.FRONTEND_HOMEPAGE)
 @RestController
 public class ItemController {
 	Logger logger = Logger.getLogger("Item");

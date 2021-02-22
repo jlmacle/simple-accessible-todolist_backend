@@ -18,14 +18,14 @@ public class Item implements Comparable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)	
 	@Column(name="ITEM_ID")
-	private Integer item_id;
+	private Integer itemId;
 	
 	
 	@Column(name="ITEM_NAME")
-	private String item_name;
+	private String itemName;
 	
 	@Column(name="CATEGORY_ID")
-	private Integer category_id;	
+	private Integer categoryId;	
 	
 	//  "The default constructor exists only for the sake of JPA. 
 	//  You do not use it directly, so it is designated as protected"
@@ -36,44 +36,44 @@ public class Item implements Comparable{
 	
 	public Item(String name, Integer categoryId) {
 		super();
-		this.item_name = name;
-		this.category_id = categoryId;
+		this.itemName = name;
+		this.categoryId = categoryId;
 	}
 	
-	public Item(Integer item_id, String item_name, Integer categoryId) {
+	public Item(Integer itemId, String itemName, Integer categoryId) {
 		super();
-		this.item_id = item_id;
-		this.item_name = item_name;
-		this.category_id = categoryId;
+		this.itemId = itemId;
+		this.itemName = itemName;
+		this.categoryId = categoryId;
 	}
 
 	public Integer getId() {
-		return item_id;
+		return itemId;
 	}
 	
 	public void setId(Integer id) {
-		this.item_id = id;
+		this.itemId = id;
 	}
 
 	public String getName() {
-		return item_name;
+		return itemName;
 	}
 
 	public void setName(String name) {
-		this.item_name = name;
+		this.itemName = name;
 	}
 
 	public Integer getCategoryId() {
-		return category_id;
+		return categoryId;
 	}
 
 	public void setCategoryId(Integer categoryId) {
-		this.category_id = categoryId;
+		this.categoryId = categoryId;
 	}
 
 	@Override
 	public String toString() {
-		return "Item [id=" + item_id + ", name=" + item_name + ", categoryId=" + category_id + "]";
+		return "Item [id=" + itemId + ", name=" + itemName + ", categoryId=" + categoryId + "]";
 	}		
 	
 	public int compareTo(Object item) {
