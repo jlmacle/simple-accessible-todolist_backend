@@ -2,9 +2,9 @@ package jl.forthem.controllers;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -24,14 +24,14 @@ import jl.forthem.repositories.ItemRepository;
 @CrossOrigin(origins=Configuration.FRONTEND_HOMEPAGE)
 @RestController
 public class ItemController {
-	Logger logger = Logger.getLogger("Item");
+	Logger logger = LoggerFactory.getLogger(ItemController.class);
 		
 	@Autowired
 	ItemRepository repository;
 	
 	@PostMapping("/item/{id}")
 	public Item addItem(@RequestBody Item item, @PathVariable("id")Integer categoryId) {
-		System.out.println("** Entering the addItem method. Adding an item:"+item.getName()+ " in relation to category id: "+categoryId);
+		logger.info("Adding the item: "+item.toString()+" to the category id: "+categoryId);
 		Item addedItem = new Item(item.getId(), item.getName(), categoryId);		
 		return repository.save(addedItem);
 	}
@@ -45,7 +45,7 @@ public class ItemController {
 	
 	@DeleteMapping("/item/{id}")
 	public void deleteItem(@PathVariable("id") Integer id) {
-		logger.log(Level.ALL,"Deletion of item: id:"+id, new Object());
+		logger.info("Deleting the item with id: "+id);
 		repository.deleteById(id);		
 	}
 

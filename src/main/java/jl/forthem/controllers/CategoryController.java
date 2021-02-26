@@ -4,9 +4,9 @@ import jl.forthem.Configuration;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.logging.Logger;
-import java.util.logging.Level;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -29,7 +29,7 @@ import jl.forthem.repositories.CategoryRepository;
 
 @RestController
 public class CategoryController {
-	Logger logger = Logger.getLogger("CategoryController");
+	Logger logger = LoggerFactory.getLogger(CategoryController.class);	
 		
 	@Autowired
 	CategoryRepository repository;
@@ -37,7 +37,7 @@ public class CategoryController {
 	
 	@PostMapping("/category")
 	public Category addCategory(@RequestBody Category category) {
-		logger.log(Level.ALL,"Category: "+category.toString(), new Object());
+		logger.info("Adding category: "+category.toString());
 		return repository.save(category);
 	}	
 	
@@ -51,7 +51,7 @@ public class CategoryController {
 	
 	@DeleteMapping("/category/{id}")
 	public void deleteCategory(@PathVariable("id") Integer id) {
-		logger.log(Level.ALL,"Deletion of category: id:"+id, new Object());
+		logger.info("Deletion of category with id :"+id);
 		repository.deleteById(id);		
 	}
 	
