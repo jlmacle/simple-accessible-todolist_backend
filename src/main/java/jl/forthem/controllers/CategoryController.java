@@ -42,7 +42,6 @@ public class CategoryController {
 		Category category = new Category();
 		category.setId(categoryDto.getId());
 		category.setName(categoryDto.getName());
-		category.setItems(categoryDto.getItems());
 		return repository.save(category);
 	}	
 	

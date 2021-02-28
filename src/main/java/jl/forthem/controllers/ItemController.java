@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import jl.forthem.Configuration;
+import jl.forthem.dto.ItemDTO;
 import jl.forthem.models.Item;
 import jl.forthem.repositories.ItemRepository;
 
@@ -30,9 +31,9 @@ public class ItemController {
 	ItemRepository repository;
 	
 	@PostMapping("/item/{id}")
-	public Item addItem(@RequestBody Item item, @PathVariable("id")Integer categoryId) {
-		logger.info("Adding the item: "+item.toString()+" to the category id: "+categoryId);
-		Item addedItem = new Item(item.getId(), item.getName(), categoryId);		
+	public Item addItem(@RequestBody ItemDTO itemDto, @PathVariable("id")Integer categoryId) {
+		logger.info("Adding the item: "+itemDto.toString()+" to the category id: "+categoryId);		
+		Item addedItem = new Item(itemDto.getId(), itemDto.getName(), categoryId);	
 		return repository.save(addedItem);
 	}
 	
