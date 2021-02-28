@@ -80,8 +80,18 @@ public class Item implements Comparable<Object>{
 	@Override
 	public boolean equals(Object obj)
 	{
+		if (obj == null) {return false;}
+		
+		if(obj.getClass() != Item.class) {return false;}
+		
 		return (this.getId().equals(((Item)obj).getId())  && this.getName().equals(((Item)obj).getName())  
 				&&  this.getCategoryId().equals(((Item)obj).getCategoryId())  );
+	}
+	
+	@Override
+	public int hashCode() 
+	{
+		return this.getName().hashCode()+1000000*this.getId().hashCode();
 	}
 	
 }

@@ -73,8 +73,18 @@ public class Category implements Comparable <Object>{
 	@Override
 	public boolean equals(Object obj)
 	{
+		if (obj == null) {return false;}
+		
+		if(obj.getClass() != Category.class) {return false;}
+		
 		return this.getId().equals( ((Category)obj).getId() ) &&  this.getName().equals( ((Category)obj).getName() );
 	}
+	
+	@Override
+	 public int hashCode()
+	 {
+		return this.getName().hashCode()+1000000*this.getId().hashCode();
+	 }
 	
 
 }
