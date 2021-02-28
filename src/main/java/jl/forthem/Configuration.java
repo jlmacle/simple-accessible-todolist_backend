@@ -16,7 +16,6 @@ import org.springframework.context.annotation.Bean;
 @org.springframework.context.annotation.Configuration
 public class Configuration {	
 	
-	//public static final String FRONTEND_HOMEPAGE = "http://192.168.1.100:4200";
 	public static final String FRONTEND_HOMEPAGE = "http://localhost:4200";
 	/**
 	 * Feeds some configuration information from environment variables.
