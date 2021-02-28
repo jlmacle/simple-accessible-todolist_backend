@@ -31,14 +31,14 @@ import jl.forthem.repositories.CategoryRepository;
 @RestController
 public class CategoryController {
 	Logger logger = LoggerFactory.getLogger(CategoryController.class);	
-		
+	
 	@Autowired
 	CategoryRepository repository;
 	
 	
 	@PostMapping("/category")
 	public Category addCategory(@RequestBody CategoryDTO categoryDto) {
-		logger.info(String.format("Adding category: %s ",categoryDto.toString()));
+		if (logger.isDebugEnabled()) {logger.debug(String.format("Adding category: %s ",categoryDto.toString()));}
 		Category category = new Category();
 		category.setId(categoryDto.getId());
 		category.setName(categoryDto.getName());
@@ -55,7 +55,8 @@ public class CategoryController {
 	
 	@DeleteMapping("/category/{id}")
 	public void deleteCategory(@PathVariable("id") Integer id) {
-		logger.info(String.format("Deletion of category with id %s:",id));
+		
+		if (logger.isDebugEnabled()) logger.debug(String.format("Deletion of category with id: %s",id));
 		repository.deleteById(id);		
 	}
 	

@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="tdl_category")
-public class Category implements Comparable {	
+public class Category implements Comparable <Object>{	
 	
 	@Id
 	@Column(name="CATEGORY_ID")
