@@ -26,13 +26,13 @@ import jl.forthem.repositories.ItemRepository;
 @RestController
 public class ItemController {
 	Logger logger = LoggerFactory.getLogger(ItemController.class);
-		
+	
 	@Autowired
 	ItemRepository repository;
 	
 	@PostMapping("/item/{id}")
 	public Item addItem(@RequestBody ItemDTO itemDto, @PathVariable("id")Integer categoryId) {
-		logger.info(String.format("Adding the item: %s to the category id: %s",itemDto.toString(),categoryId));		
+		if (logger.isDebugEnabled()) {logger.debug(String.format("Adding the item: %s to the category id: %s",itemDto.toString(),categoryId));}		
 		Item addedItem = new Item(itemDto.getId(), itemDto.getName(), categoryId);	
 		return repository.save(addedItem);
 	}
@@ -46,7 +46,7 @@ public class ItemController {
 	
 	@DeleteMapping("/item/{id}")
 	public void deleteItem(@PathVariable("id") Integer id) {
-		logger.info(String.format("Deleting the item with id: %s",id));
+		if (logger.isDebugEnabled()) logger.debug(String.format("Deleting the item with id: %s",id));
 		repository.deleteById(id);		
 	}
 

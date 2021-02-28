@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="tdl_item")
-public class Item implements Comparable{
+public class Item implements Comparable<Object>{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)	
