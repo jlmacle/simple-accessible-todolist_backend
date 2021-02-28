@@ -38,7 +38,7 @@ public class CategoryController {
 	
 	@PostMapping("/category")
 	public Category addCategory(@RequestBody CategoryDTO categoryDto) {
-		logger.info("Adding category: "+categoryDto.toString());
+		logger.info(String.format("Adding category: %s ",categoryDto.toString()));
 		Category category = new Category();
 		category.setId(categoryDto.getId());
 		category.setName(categoryDto.getName());
@@ -55,7 +55,7 @@ public class CategoryController {
 	
 	@DeleteMapping("/category/{id}")
 	public void deleteCategory(@PathVariable("id") Integer id) {
-		logger.info("Deletion of category with id :"+id);
+		logger.info(String.format("Deletion of category with id %s:",id));
 		repository.deleteById(id);		
 	}
 	
