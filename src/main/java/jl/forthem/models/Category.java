@@ -25,7 +25,7 @@ public class Category implements Comparable {
 	@OneToMany(targetEntity = Item.class, mappedBy = "categoryId", orphanRemoval = false)	
 	private List<Item> items;
 
-	protected Category() {
+	public Category() {
 		super();
 	}
 	

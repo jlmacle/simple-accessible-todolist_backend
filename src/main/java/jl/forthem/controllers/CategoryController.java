@@ -1,6 +1,7 @@
 package jl.forthem.controllers;
 
 import jl.forthem.Configuration;
+import jl.forthem.dto.CategoryDTO;
 
 import java.util.Collections;
 import java.util.List;
@@ -36,8 +37,12 @@ public class CategoryController {
 	
 	
 	@PostMapping("/category")
-	public Category addCategory(@RequestBody Category category) {
-		logger.info("Adding category: "+category.toString());
+	public Category addCategory(@RequestBody CategoryDTO categoryDto) {
+		logger.info("Adding category: "+categoryDto.toString());
+		Category category = new Category();
+		category.setId(categoryDto.getId());
+		category.setName(categoryDto.getName());
+		category.setItems(categoryDto.getItems());
 		return repository.save(category);
 	}	
 	
