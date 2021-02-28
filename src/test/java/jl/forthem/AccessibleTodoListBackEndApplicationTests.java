@@ -11,7 +11,7 @@ class AccessibleTodoListBackEndApplicationTests {
 	@Test
 	void contextLoads() {
 		boolean test= true;
-		assertThat(test).isEqualTo(false);
+		assertThat(test).isFalse();
 	}
 
 }
