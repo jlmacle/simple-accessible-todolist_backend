@@ -70,6 +70,11 @@ public class Category implements Comparable <Object>{
 		
 	}
 	
+	@Override
+	public boolean equals(Object obj)
+	{
+		return this.getId().equals( ((Category)obj).getId() ) &&  this.getName().equals( ((Category)obj).getName() );
+	}
 	
 
 }

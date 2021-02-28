@@ -77,4 +77,11 @@ public class Item implements Comparable<Object>{
 		return this.getName().compareTo(((Item)item).getName());
 	}
 	
+	@Override
+	public boolean equals(Object obj)
+	{
+		return (this.getId().equals(((Item)obj).getId())  && this.getName().equals(((Item)obj).getName())  
+				&&  this.getCategoryId().equals(((Item)obj).getCategoryId())  );
+	}
+	
 }
