@@ -1,6 +1,5 @@
 package jl.forthem.dto;
 
-import jl.forthem.models.Item;
 
 /**
  * @author jl
