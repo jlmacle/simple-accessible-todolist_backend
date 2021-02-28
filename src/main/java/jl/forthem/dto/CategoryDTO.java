@@ -1,7 +1,5 @@
 package jl.forthem.dto;
 
-import java.util.List;
-
 import jl.forthem.models.Item;
 
 /**
@@ -12,10 +10,12 @@ import jl.forthem.models.Item;
 public class CategoryDTO {
 	@Override
 	public String toString() {
-		return "CategoryDTO [id=" + id + ", name=" + name + ", items=" + items + "]";
+		return "CategoryDTO [id=" + id + ", name=" + name + "]";
 	}
 
-	private Integer id;
+	private Integer id;	
+
+	private String name;
 	
 	public Integer getId() {
 		return id;
@@ -33,16 +33,5 @@ public class CategoryDTO {
 		this.name = name;
 	}
 
-	public List<Item> getItems() {
-		return items;
-	}
-
-	public void setItems(List<Item> items) {
-		this.items = items;
-	}
-
-	private String name;
-	
-	private List<Item> items;
 	
 }
