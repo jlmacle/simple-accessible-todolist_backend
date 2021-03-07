@@ -16,7 +16,7 @@ public class Category implements Comparable <Object>{
 	
 	@Id
 	@Column(name="CATEGORY_ID")
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	@Column(name="CATEGORY_NAME")
