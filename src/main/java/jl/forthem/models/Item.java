@@ -13,7 +13,7 @@ import javax.persistence.Table;
 public class Item implements Comparable<Object>{
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	@Column(name="ITEM_ID")
 	private Integer itemId;
 	
