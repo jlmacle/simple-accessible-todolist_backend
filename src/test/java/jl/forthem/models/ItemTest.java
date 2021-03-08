@@ -29,5 +29,22 @@ class ItemTest {
 	void test_Identical_Items() {
 		assertTrue(item.equals(item_identical));
 	}
-
+	
+	@Test
+	void test_Different_Items_1()
+	{
+		assertFalse(item.equals(item_different1));
+	}
+	
+	@Test
+	void test_Different_Items_2()
+	{
+		assertFalse(item.equals(item_different2));
+	}
+	
+	@Test
+	void test_Different_Items_3()
+	{
+		assertFalse(item.equals(item_different2));
+	}
 }
