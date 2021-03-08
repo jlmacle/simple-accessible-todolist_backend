@@ -58,7 +58,7 @@ class ItemTest {
 		//Comparing items with different names
 		int comparison1 = item.compareTo(item_nonEqual_Compare_non_0);
 		int comparison2 = item_nonEqual_Compare_non_0.compareTo(item);
-		boolean test = (comparison1*comparison2 <0);
+		boolean test = ((comparison1*comparison2) <0);
 		assertTrue(test);
 	}
 	
@@ -70,27 +70,34 @@ class ItemTest {
 		int y_to_z = item_nonEqual_Compare_non_0.compareTo(item_nonEqual_Compare_non_0_2);
 		int x_to_z = item.compareTo(item_nonEqual_Compare_non_0_2);
 		
-		if (x_to_y * y_to_z >0 )
+		if ((x_to_y * y_to_z) >0 )
 		{
-			assertTrue(x_to_y * x_to_z >0);
+			assertTrue((x_to_y * x_to_z) >0);
 		}
 		else 
 		{fail("The test of transitivity failed. x_to_y and y_to_z should have been of the same sign ");}
 		
 	}
 	//Requirement 3 for compareTo	
-		
+	@Test
+	void compareTest_Requirement3()
+	{
+		assertEquals(0, item.compareTo(item_equal_Compare_0));
+		int x_to_z = item.compareTo(item_nonEqual_Compare_non_0_2);
+		int y_to_z = item_equal_Compare_0.compareTo(item_nonEqual_Compare_non_0_2);
+		assertTrue((x_to_z * y_to_z) > 0);
+	}
 	
 	@Test
 	void compareToTest_Same()
 	{
-		assertEquals(item.compareTo(item_equal_Compare_0),0);
+		assertEquals(0,item.compareTo(item_equal_Compare_0));
 	}
 	
 	@Test
 	void compareToTest_Same2()
 	{	// same name. should return true.
-		assertEquals(item.compareTo(item_nonEqual_Compare_0),0);
+		assertEquals(0,item.compareTo(item_nonEqual_Compare_0));
 	}
 	
 	
