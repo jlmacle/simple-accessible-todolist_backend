@@ -86,19 +86,4 @@ class ItemTest {
 	}
 	
 	
-	@Test
-	void compareToTest_Same()
-	{
-		assertEquals(item.compareTo(item_equal_Compare_0),0);
-	}
-	
-	@Test
-	void compareToTest_Same2()
-	{	// same name. should return true.
-		assertEquals(item.compareTo(item_nonEqual_Compare_0),0);
-	}
-	
-	
-	
-	
 }
