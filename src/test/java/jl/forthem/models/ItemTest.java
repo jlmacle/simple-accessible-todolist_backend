@@ -82,7 +82,7 @@ class ItemTest {
 	@Test
 	void compareTest_Requirement3()
 	{
-		assertEquals(item.compareTo(item_equal_Compare_0),0);
+		assertEquals(0, item.compareTo(item_equal_Compare_0));
 		int x_to_z = item.compareTo(item_nonEqual_Compare_non_0_2);
 		int y_to_z = item_equal_Compare_0.compareTo(item_nonEqual_Compare_non_0_2);
 		assertTrue((x_to_z * y_to_z) > 0);
@@ -91,13 +91,13 @@ class ItemTest {
 	@Test
 	void compareToTest_Same()
 	{
-		assertEquals(item.compareTo(item_equal_Compare_0),0);
+		assertEquals(0,item.compareTo(item_equal_Compare_0));
 	}
 	
 	@Test
 	void compareToTest_Same2()
 	{	// same name. should return true.
-		assertEquals(item.compareTo(item_nonEqual_Compare_0),0);
+		assertEquals(0,item.compareTo(item_nonEqual_Compare_0));
 	}
 	
 	
