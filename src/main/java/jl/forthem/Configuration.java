@@ -12,10 +12,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @author 
  * Class used to configure the application
  */
-/**
- * @author 
- *
- */
+
 @org.springframework.context.annotation.Configuration
 @EnableWebMvc
 public class Configuration {	
@@ -67,9 +64,6 @@ public class Configuration {
 			}
 		};
 	}
-	
-	
-	
-	
+		
 
 }
