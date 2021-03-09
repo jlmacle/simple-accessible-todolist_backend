@@ -58,12 +58,11 @@ public class Configuration {
 				//Mappings for the CategoryController
 				registry.addMapping("/category").allowedOrigins(origins);
 				registry.addMapping("/categories").allowedOrigins(origins);
-					//unclear why delete was needed for the mapping to be effective
 				registry.addMapping("/category/{id}").allowedOrigins(origins).allowedMethods("DELETE");
 				registry.addMapping("/category/{name}").allowedOrigins(origins);
 				
 				//Mappings for the ItemController
-				registry.addMapping("/item/{id}").allowedOrigins(origins);
+				registry.addMapping("/item/{id}").allowedOrigins(origins).allowedMethods("POST","DELETE");
 				registry.addMapping("/items").allowedOrigins(origins);			
 				
 			}

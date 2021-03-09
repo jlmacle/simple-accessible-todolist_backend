@@ -27,12 +27,6 @@ import jl.forthem.repositories.CategoryRepository;
    \jre\bin\javaw.exe
 */ 
 
-//@CrossOrigin(origins=Configuration.CORS_ALLOWED)
-
-//Grid 4
-//@CrossOrigin({Configuration.CORS_ALLOWED,Configuration.CORS_ALLOWED_2,Configuration.CORS_ALLOWED_3})
-
-
 @RestController
 public class CategoryController {
 	Logger logger = LoggerFactory.getLogger(CategoryController.class);	
