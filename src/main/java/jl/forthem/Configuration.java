@@ -23,9 +23,8 @@ public class Configuration {
 	public static final String CORS_ALLOWED = "http://localhost:4200";
 	
 	//Grid 4 configuration
-	public static final String CORS_ALLOWED_2 = "http://192.168.1.12:4200";//node 1
-	public static final String CORS_ALLOWED_3 = "http://192.168.1.16:4200";//node2
-	
+	public static final String CORS_ALLOWED_2 = "http://192.168.1.15:4200";//hub
+		
 	/**
 	 * Feeds some configuration information from environment variables.
 	 * @return a DataSource object
@@ -50,14 +49,14 @@ public class Configuration {
 			@Override
 			public void addCorsMappings(CorsRegistry registry)
 			{	
-				String[] origins= {CORS_ALLOWED};
+				//String[] origins= {CORS_ALLOWED};
 				
 				//Grid 4
-				//String[] origins= {CORS_ALLOWED, CORS_ALLOWED_2, CORS_ALLOWED_3};
+				String[] origins= {CORS_ALLOWED, CORS_ALLOWED_2};
 				
 				//Mappings for the CategoryController
 				registry.addMapping("/category").allowedOrigins(origins);
-				registry.addMapping("/categories").allowedOrigins(origins);
+				registry.addMapping("/categories").allowedOrigins(origins).allowedMethods("GET");
 				registry.addMapping("/category/{id}").allowedOrigins(origins).allowedMethods("DELETE");
 				registry.addMapping("/category/{name}").allowedOrigins(origins);
 				
