@@ -4,6 +4,9 @@ import javax.sql.DataSource;
 
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * @author 
@@ -14,16 +17,22 @@ import org.springframework.context.annotation.Bean;
  *
  */
 @org.springframework.context.annotation.Configuration
+@EnableWebMvc
 public class Configuration {	
 	
-	public static final String FRONTEND_HOMEPAGE = "http://localhost:4200";
+	public static final String CORS_ALLOWED = "http://localhost:4200";
+	
+	//Grid 4 configuration
+	public static final String CORS_ALLOWED_2 = "http://192.168.1.12:4200";//node 1
+	public static final String CORS_ALLOWED_3 = "http://192.168.1.16:4200";//node2
+	
 	/**
 	 * Feeds some configuration information from environment variables.
 	 * @return a DataSource object
 	 * https://docs.oracle.com/javase/8/docs/api/javax/sql/DataSource.html (Java 8)
 	 */
 	@Bean		
-	public DataSource getDataSource() {
+	public DataSource getDataSource() {		
 		DataSourceBuilder<?> dataSourceBuilder = DataSourceBuilder.create();
 		dataSourceBuilder.driverClassName("org.postgresql.Driver");
 		dataSourceBuilder.url(System.getenv("DB_URL"));
@@ -32,6 +41,36 @@ public class Configuration {
 		return dataSourceBuilder.build();
 		
 	}
+	//https://spring.io/blog/2015/06/08/cors-support-in-spring-framework
+	@Bean
+	public WebMvcConfigurer corsConfigurer()
+	{
+		return new WebMvcConfigurer() 
+		{	
+			@Override
+			public void addCorsMappings(CorsRegistry registry)
+			{	
+				String[] origins= {CORS_ALLOWED};
+				
+				//Grid 4
+				//String[] origins= {CORS_ALLOWED, CORS_ALLOWED_2, CORS_ALLOWED_3};
+				
+				//Mappings for the CategoryController
+				registry.addMapping("/category").allowedOrigins(origins);
+				registry.addMapping("/categories").allowedOrigins(origins);
+					//unclear why delete was needed for the mapping to be effective
+				registry.addMapping("/category/{id}").allowedOrigins(origins).allowedMethods("DELETE");
+				registry.addMapping("/category/{name}").allowedOrigins(origins);
+				
+				//Mappings for the ItemController
+				registry.addMapping("/item/{id}").allowedOrigins(origins);
+				registry.addMapping("/items").allowedOrigins(origins);			
+				
+			}
+		};
+	}
+	
+	
 	
 	
 
