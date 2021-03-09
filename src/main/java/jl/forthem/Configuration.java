@@ -20,7 +20,7 @@ public class Configuration {
 	public static final String CORS_ALLOWED = "http://localhost:4200";
 	
 	//Grid 4 configuration
-	public static final String CORS_ALLOWED_2 = "http://192.168.1.15:4200";//hub
+	public static final String CORS_ALLOWED_2 = "http://192.168.1.15:4200";//Angular server
 		
 	/**
 	 * Feeds some configuration information from environment variables.
