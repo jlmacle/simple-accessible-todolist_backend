@@ -50,8 +50,12 @@ class ItemTest {
 		assertFalse(item.equals(item_nonEqual_Compare_0_2));
 	}
 	
-	//https://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html
-	//Requirement 1 for compareTo
+	// https://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html
+	// Requirement 1 for compareTo 
+	// The implementor must ensure sgn(x.compareTo(y)) == -sgn(y.compareTo(x)) for all x and y.
+	// The overriden method is based on the alphabetical order. 
+	// This requirement known to be fulfilled for the alphabetical order is assumed.
+	
 	@Test
 	void compareToTest_Requirement1()
 	{	
@@ -62,7 +66,8 @@ class ItemTest {
 		assertTrue(test);
 	}
 	
-	//Requirement 2 for compareTo: transistive relationship
+	//  Requirement 2 for compareTo: transistive relationship
+	//  (x.compareTo(y)>0 && y.compareTo(z)>0) implies x.compareTo(z)>0.
 	@Test
 	void compareTest_Requirement2() 
 	{
@@ -78,7 +83,8 @@ class ItemTest {
 		{fail("The test of transitivity failed. x_to_y and y_to_z should have been of the same sign ");}
 		
 	}
-	//Requirement 3 for compareTo	
+	// Requirement 3 for compareTo	
+	// x.compareTo(y)==0 implies that sgn(x.compareTo(z)) == sgn(y.compareTo(z)), for all z.
 	@Test
 	void compareTest_Requirement3()
 	{
@@ -100,6 +106,43 @@ class ItemTest {
 		assertEquals(0,item.compareTo(item_nonEqual_Compare_0));
 	}
 	
+	/*
+	 * The general contract of hashCode is:
+	 * 
+	 * 1. Whenever it is invoked on the same object more than once 
+	 * during an execution of a Java application, 
+	 * the hashCode method must consistently return the same
+	 * integer, provided no information used in equals comparisons on the object is
+	 * modified. This integer need not remain consistent from one execution of an
+	 * application to another execution of the same application. 
+	 * 
+	 * 2. If two objects are equal according to the equals(Object) method, then calling the hashCode
+	 * method on each of the two objects must produce the same integer result. 
+	 * 
+	 * 3. It is not required that if two objects are unequal according to the
+	 * equals(java.lang.Object) method, then calling the hashCode method on each of
+	 * the two objects must produce distinct integer results. However, the
+	 * programmer should be aware that producing distinct integer results for
+	 * unequal objects may improve the performance of hash tables.
+	 */
+	
+	@Test
+	void hashTest_contract_1()
+	{
+		int hash1 = item.hashCode();
+		int hash2 = item.hashCode();
+		assertEquals(hash1, hash2);
+	}
+	
+	@Test
+	void hashTest_contract_2()
+	{
+		if(item.equals(item_equal_Compare_0))
+		{
+			assertEquals(item.hashCode(), item_equal_Compare_0.hashCode());
+		}
+		else fail("The two items were not identical.");
+	}
 	
 	
 	
