@@ -3,8 +3,12 @@
 version: 2.1
 
 commands:
+  back-end-clone-command:
+    steps:
+      - run: git clone https://github.com/jlmacle/AccessibleTodoList_Backend.git
   back-end-run-command:
     steps:
+      - run: cd AccessibleTodoList_Backend
       - run: pwd 
 
 executors:
