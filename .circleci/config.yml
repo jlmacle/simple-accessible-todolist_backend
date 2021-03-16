@@ -5,7 +5,7 @@ version: 2.1
 commands:
   back-end-run-command:
     steps:
-      - run: mvn spring-boot:run
+      - run: ./mvnw spring-boot:run
 
 executors:
   back-end-run-executor:
