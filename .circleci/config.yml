@@ -6,6 +6,7 @@ commands:
   back-end-clone-command:
     steps:
       - run: git clone https://github.com/jlmacle/AccessibleTodoList_Backend.git
+      - run: cd AccessibleTodoList_Backend
       - run: pwd
       - run: ls -la
   back-end-run-command:
