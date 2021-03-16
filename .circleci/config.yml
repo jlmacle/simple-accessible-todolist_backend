@@ -13,19 +13,24 @@ commands:
       - run: ls -la
 
 executors:
-  back-end-run-executor:
+  back-end-executor:
     docker:
       - image: cimg/openjdk:11.0
 
 jobs: 
   back-end-run-job:     
-    executor: back-end-run-executor
+    executor: back-end-executor
     steps: 
-      - back-end-run-command    
+      - back-end-run-command   
+       
+  back-end-clone-job:
+    executor: back-end-executor
+    steps:
+      - back-end-clone-command
 
 workflows: 
   back-end-run-workflow: 
     jobs:
-      - back-end-clone-command
+      - back-end-clone-job
       - back-end-run-job
  
