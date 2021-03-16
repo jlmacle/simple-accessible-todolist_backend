@@ -10,6 +10,7 @@ commands:
     steps:
       - run: cd AccessibleTodoList_Backend
       - run: pwd 
+      - run: ls -la
 
 executors:
   back-end-run-executor:
