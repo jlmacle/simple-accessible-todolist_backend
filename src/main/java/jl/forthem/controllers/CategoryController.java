@@ -20,14 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 import jl.forthem.models.Category;
 import jl.forthem.repositories.CategoryRepository;
 
-/*
- Application that needed a rule in the firewall for the application to be accessed from 
- another computer on the local network (with IP 192.168.1.101): 
- ..../sts-4.8.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_15.0.0.v20201014-1246
-   \jre\bin\javaw.exe
-*/ 
-@CrossOrigin(origins=Configuration.FRONTEND_HOMEPAGE)
-
 @RestController
 public class CategoryController {
 	Logger logger = LoggerFactory.getLogger(CategoryController.class);	
@@ -38,6 +30,7 @@ public class CategoryController {
 	
 	@PostMapping("/category")
 	public Category addCategory(@RequestBody CategoryDTO categoryDto) {
+		
 		if (logger.isDebugEnabled()) {logger.debug(String.format("Adding category: %s ",categoryDto.toString()));}
 		Category category = new Category();
 		category.setId(categoryDto.getId());
