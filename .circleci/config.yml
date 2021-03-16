@@ -5,7 +5,7 @@ version: 2.1
 commands:
   back-end-run-command:
     steps:
-      - run: ./mvnw spring-boot:run
+      - run: echo "Run issue to solve."
 
 executors:
   back-end-run-executor:
