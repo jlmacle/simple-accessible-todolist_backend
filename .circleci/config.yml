@@ -5,7 +5,7 @@ version: 2.1
 commands:
   back-end-run-command:
     steps:
-      - run: echo "Run issue to solve."
+      - run: mvn -v
 
 executors:
   back-end-run-executor:
