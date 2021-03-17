@@ -21,7 +21,7 @@ commands:
 executors:
   back-end-executor:
     docker:
-      - image: circleci/postgres:13.2           
+      - image: circleci/postgres           
 
 jobs: 
   back-end-run-job:     
