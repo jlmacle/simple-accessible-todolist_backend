@@ -6,7 +6,7 @@ commands:
   back-end-run-command:
     steps:
       - run: #Installation/configuration of Postgresql
-            echo $DB_NAME && echo $DB_URL && sudo apt-get update && sudo apt-get upgrade 
+            echo $DB_NAME && echo $DB_URL 
             && psql -v
             ## && sudo apt-get -y install postgresql 
             ## && echo "***************************************************PostgreSQL has been installed"
