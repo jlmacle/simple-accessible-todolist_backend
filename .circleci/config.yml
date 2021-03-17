@@ -2,35 +2,38 @@
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
-commands:
-  back-end-clone-command:
-    steps:
-      - run: git clone https://github.com/jlmacle/AccessibleTodoList_Backend.git && ls -la
+commands:  
   back-end-run-command:
     steps:
-      - run: ls -la && cd AccessibleTodoList_Backend && mvn spring-boot:run
+      - run: echo $DB_USERNAME 
+            #&& sudo apt-get update && sudo apt-get -y install postgresql && sudo pg_ctlcluster 12 main start && sudo -u postgres psql
+            #&& CREATE $DB_USERNAME WITH ENCRYPTED PASSWORD $DB_PASSWORD; && CREATE DATABASE $DB_NAME OWNER $DB_USERNAME;
+            
+            # && git  clone https://github.com/jlmacle/AccessibleTodoList_Backend.git && cd AccessibleTodoList_Backend
+            #  && psql -v  && mvn spring-boot:run
 
 executors:
   back-end-executor:
     docker:
-      - image: cimg/openjdk:11.0
+      - image: cimg/openjdk:11.0          
 
 jobs: 
   back-end-run-job:     
     executor: back-end-executor
     steps: 
+      - restore_cache:
+          keys:
+            - app-cache
       - back-end-run-command   
-
-  back-end-clone-job:
-    executor: back-end-executor
-    steps:
-      - back-end-clone-command
+      - save_cache:
+          paths:
+            - "./"
+          key: 
+            app-cache
 
 workflows: 
   back-end-run-workflow: 
-    jobs:
-      - back-end-clone-job
+    jobs:      
       - back-end-run-job
-        requires:
-          - back-end-clone-job
- 
+          
+        
