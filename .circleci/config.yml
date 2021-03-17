@@ -38,9 +38,15 @@ executors:
       # primary container
       # https://hub.docker.com/u/circleci/
       - image: circleci/openjdk    
+        auth:
+          username: $DOCKER_HUB_USER
+          password: $DOCKER_HUB_PASSWORD
         environment:
           TEST_DATABASE_URL: $DB_TEST_URL
       - image: circleci/postgresql
+        auth:
+          username: $DOCKER_HUB_USER
+          password: $DOCKER_HUB_PASSWORD
           
 
 jobs: 
