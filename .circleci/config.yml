@@ -5,8 +5,9 @@ version: 2.1
 commands:  
   back-end-run-command:
     steps:
-      - run: sudo apt-get update && sudo apt-get -y install postgresql && sudo pg_ctlcluster 12 main start && git clone https://github.com/jlmacle/AccessibleTodoList_Backend.git && cd AccessibleTodoList_Backend
-              && psql -v  && mvn spring-boot:run
+      - run: sudo apt-get update && sudo apt-get -y install postgresql && sudo pg_ctlcluster 12 main start 
+            # && git  clone https://github.com/jlmacle/AccessibleTodoList_Backend.git && cd AccessibleTodoList_Backend
+            #  && psql -v  && mvn spring-boot:run
 
 executors:
   back-end-executor:
