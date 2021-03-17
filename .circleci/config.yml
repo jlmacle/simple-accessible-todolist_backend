@@ -14,8 +14,12 @@ commands:
             sudo rm -rf /var/lib/apt/lists/* &&
             sudo apt-get update &&        
             echo "********** Postgresql installation"  &&
-            sudo apt-get -y install postgresql 
-            #sudo -u postgres psql                    
+            sudo apt-get -y install postgresql &&
+            sudo -u postgres psql && CREATE $DB_USERNAME WITH ENCRYPTED PASSWORD $DB_PASSWORD; && CREATE DATABASE $DB_NAME OWNER $DB_USERNAME;                  
+
+
+
+
             #postgres -D/var/lib/postgresql/9.6/main
             #psql -d $TEST_DATABASE_URL -c "CREATE TABLE test (name CHAR(25));"
            
@@ -24,7 +28,7 @@ commands:
             #pg_ctlcluster 12 main start  
             #&& sudo -u postgres psql
             #&& DROP DATABASE $DB_NAME;
-            #&& CREATE $DB_USERNAME WITH ENCRYPTED PASSWORD $DB_PASSWORD; && CREATE DATABASE $DB_NAME OWNER $DB_USERNAME;
+            #&& 
             
             # && git  clone https://github.com/jlmacle/AccessibleTodoList_Backend.git && cd AccessibleTodoList_Backend
             #  && psql -v  && mvn spring-boot:run
