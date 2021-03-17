@@ -14,10 +14,8 @@ commands:
             sudo rm -rf /var/lib/apt/lists/* &&
             sudo apt-get update &&        
             echo "********** Postgresql installation"  &&
-            sudo apt install -y postgresql &&
-            echo "********** Postgresql client installation" &&
-            sudo apt install -y postgresql-client 
-                   
+            sudo apt-get -y install postgresql &&
+            sudo -u postgres psql                    
             #postgres -D/var/lib/postgresql/9.6/main
             #psql -d $TEST_DATABASE_URL -c "CREATE TABLE test (name CHAR(25));"
            
