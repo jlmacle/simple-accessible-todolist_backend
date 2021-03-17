@@ -7,7 +7,7 @@ commands:
     steps:
       - run: #Configuration of Postgresql
             echo "Starting the configuration of PostgreSQL"         
-            && /usr/lib/postgresql/12/bin/initdb -D /var/lib/postgresql/12/main --auth-local peer --auth-host md5
+            && docker
             #pg_ctlcluster 12 main start  
             #&& sudo -u postgres psql
             #&& DROP DATABASE $DB_NAME
