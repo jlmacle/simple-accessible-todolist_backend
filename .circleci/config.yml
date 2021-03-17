@@ -5,7 +5,7 @@ version: 2.1
 commands:  
   back-end-run-command:
     steps:
-      - run: git clone https://github.com/jlmacle/AccessibleTodoList_Backend.git && cd AccessibleTodoList_Backend |
+      - run: git clone https://github.com/jlmacle/AccessibleTodoList_Backend.git && cd AccessibleTodoList_Backend
               && psql -v  && mvn spring-boot:run
 
 executors:
