@@ -14,7 +14,7 @@ commands:
             sudo rm -rf /var/lib/apt/lists/* &&
             sudo apt-get update &&               
             sudo apt install -y postgresql-client &&
-            docker run circleci/postgresql
+            docker run circleci/postgresql -e POSTGRES_PASSWORD=$DB_Pg_PASSWORD
             #sudo apt install apt-utils &&
             #sudo apt install docker &&
             #docker run circleci/postgresql -e POSTGRES_PASSWORD=$DB_PASSWORD 
