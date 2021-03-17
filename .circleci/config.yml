@@ -11,6 +11,10 @@ executors:
   back-end-executor:
     docker:
       - image: cimg/openjdk:11.0
+        environment:
+          DB_URL: ${{secrets.DB_URL}}
+          DB_USERNAME: ${{secrets.DB_USERNAME}}
+          DB_PASSWORD: ${{secrets.DB_PASSWORD}}          
 
 jobs: 
   back-end-run-job:     
