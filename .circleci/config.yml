@@ -15,7 +15,7 @@ commands:
             sudo apt-get update &&        
             echo "********** Postgresql installation"  &&
             sudo apt-get -y install postgresql &&
-            sudo -u postgres psql  \n CREATE $DB_USERNAME WITH ENCRYPTED PASSWORD $DB_PASSWORD; \n CREATE DATABASE $DB_NAME OWNER $DB_USERNAME; \n \q &&
+            sudo -u postgres psql -password $PGPASSWORD  \n CREATE $DB_USERNAME WITH ENCRYPTED PASSWORD $DB_PASSWORD; \n CREATE DATABASE $DB_NAME OWNER $DB_USERNAME; \n \q &&
             echo "********** Database should have been created";               
 
 
@@ -45,6 +45,7 @@ executors:
       - image: circleci/openjdk            
         environment:
           TEST_DATABASE_URL: $DB_TEST_URL
+          
           #https://www.postgresql.org/docs/9.0/libpq-envars.html
                
 
