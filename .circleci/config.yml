@@ -5,8 +5,9 @@ version: 2.1
 commands:  
   back-end-run-command:
     steps:
-      - run: #Configuration of Postgresql            
-            pg_ctlcluster 12 main start  
+      - run: #Configuration of Postgresql          
+            docker run circle/postgres
+            #pg_ctlcluster 12 main start  
             #&& sudo -u postgres psql
             #&& DROP DATABASE $DB_NAME
             #&& CREATE $DB_USERNAME WITH ENCRYPTED PASSWORD $DB_PASSWORD; && CREATE DATABASE $DB_NAME OWNER $DB_USERNAME;
