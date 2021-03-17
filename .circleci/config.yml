@@ -6,7 +6,7 @@ commands:
   back-end-run-command:
     steps:
       - run: sudo apt-get update && sudo apt-get -y install postgresql && sudo pg_ctlcluster 12 main start && sudo -u postgres psql
-            && CREATE USER username WITH ENCRYPTED PASSWORD ‘userpassword’; && CREATE DATABASE database_name OWNER username; 
+            && CREATE $DB_USERNAME  WITH ENCRYPTED PASSWORD $DB_PASSWORD;
             
             # && git  clone https://github.com/jlmacle/AccessibleTodoList_Backend.git && cd AccessibleTodoList_Backend
             #  && psql -v  && mvn spring-boot:run
