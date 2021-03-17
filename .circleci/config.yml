@@ -45,7 +45,7 @@ executors:
       - image: circleci/openjdk            
         environment:
           TEST_DATABASE_URL: $DB_TEST_URL
-          POSTGRES_PASSWORD : $DB_Pg_PASSWORD
+          #https://www.postgresql.org/docs/9.0/libpq-envars.html
                
 
 jobs: 
