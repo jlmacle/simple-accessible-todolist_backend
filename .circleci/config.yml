@@ -16,9 +16,8 @@ commands:
             sudo apt install -y postgresql &&
             sudo apt install -y postgresql-client &&           
             
+            psql -d $TEST_DATABASE_URL -c "CREATE TABLE test (name CHAR(25));"
            
-            sudo -u postgres psql && 
-            CREATE $DB_USERNAME WITH ENCRYPTED PASSWORD $DB_PASSWORD; CREATE DATABASE $DB_NAME OWNER $DB_USERNAME;
 
             
             #pg_ctlcluster 12 main start  
@@ -37,7 +36,9 @@ executors:
     docker:
       # primary container
       # https://hub.docker.com/u/circleci/
-      - image: circleci/openjdk         
+      - image: circleci/openjdk    
+        environment:
+          TEST_DATABASE_URL = $DB_TEST_URL
           
 
 jobs: 
