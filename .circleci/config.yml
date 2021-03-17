@@ -11,7 +11,8 @@ commands:
     steps:
       - run: #Configuration of Postgresql
             echo "Starting the configuration of PostgreSQL"  &&    
-            sudo docker run circleci/postgresql -e POSTGRES_PASSWORD=$DB_PASSWORD &&
+            sudo apt install docker &&
+            docker run circleci/postgresql -e POSTGRES_PASSWORD=$DB_PASSWORD &&
             sudo apt install postgresql-client &&
             sudo -u postgres psql
             #CREATE $DB_USERNAME WITH ENCRYPTED PASSWORD $DB_PASSWORD; 
