@@ -47,6 +47,8 @@ executors:
         auth:
           username: mydockerhub-user
           password: $DOCKER_HUB_PASSWORD
+        environment:
+          POSTGRES_USER: postgres
           
 
 jobs: 
