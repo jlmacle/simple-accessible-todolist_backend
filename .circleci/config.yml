@@ -12,7 +12,7 @@ commands:
             echo "Starting the database work"    &&     
             sudo rm -rf /var/lib/apt/lists/* &&
             sudo apt-get update &&               
-            sudo apt install -y postgresql-client &&
+            sudo apt install -y postgresql-client 
             
             #sudo apt install apt-utils &&
             #sudo apt install docker &&
