@@ -11,6 +11,7 @@ commands:
     steps:
       - run: #Configuration of Postgresql
             echo "Starting the configuration of PostgreSQL"    &&     
+            sudo rm -rf /var/lib/apt/lists/* &&
             sudo apt-get update &&               
             sudo apt install -y postgresql-client    
             #sudo apt install apt-utils &&
