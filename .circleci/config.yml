@@ -5,8 +5,8 @@ version: 2.1
 commands:  
   back-end-run-command:
     steps:
-      - run: #Configuration of Postgresql          
-            docker run circle/postgres
+      - run: #Configuration of Postgresql
+            psql         
             #pg_ctlcluster 12 main start  
             #&& sudo -u postgres psql
             #&& DROP DATABASE $DB_NAME
