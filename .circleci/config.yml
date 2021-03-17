@@ -13,7 +13,7 @@ commands:
             echo "Starting the database work"    &&     
             sudo rm -rf /var/lib/apt/lists/* &&
             sudo apt-get update &&        
-            echo "********** Postgresql installation"  
+            echo "********** Postgresql installation"  &&
             sudo apt install -y postgresql &&
             echo "********** Postgresql client installation" &&
             sudo apt install -y postgresql-client 
