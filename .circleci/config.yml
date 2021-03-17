@@ -10,12 +10,13 @@ commands:
   back-end-run-command:
     steps:
       - run: #Configuration of Postgresql
-            echo "Starting the configuration of PostgreSQL"  &&    
-            sudo apt install apt-utils &&
-            sudo apt install docker &&
-            docker run circleci/postgresql -e POSTGRES_PASSWORD=$DB_PASSWORD &&
-            sudo apt install postgresql-client &&
-            sudo -u postgres psql
+            echo "Starting the configuration of PostgreSQL"  && 
+            sudo apt install postgresql-client    
+            #sudo apt install apt-utils &&
+            #sudo apt install docker &&
+            #docker run circleci/postgresql -e POSTGRES_PASSWORD=$DB_PASSWORD &&
+           
+            #sudo -u postgres psql
             #CREATE $DB_USERNAME WITH ENCRYPTED PASSWORD $DB_PASSWORD; 
             #CREATE DATABASE $DB_NAME OWNER $DB_USERNAME;
             
