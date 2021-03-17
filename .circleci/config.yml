@@ -12,8 +12,10 @@ commands:
       - run: #Configuration of Postgresql
             echo "Starting the database work"    &&     
             sudo rm -rf /var/lib/apt/lists/* &&
-            sudo apt-get update &&          
+            sudo apt-get update &&        
+            echo "********** Postgresql installation"  
             sudo apt install -y postgresql &&
+            echo "********** Postgresql client installation" &&
             sudo apt install -y postgresql-client &&  
             ls /usr/local/bin         
             #postgres -D/var/lib/postgresql/9.6/main
