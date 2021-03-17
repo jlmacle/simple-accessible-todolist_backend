@@ -4,6 +4,7 @@
 # How to get started with pre-built Docker images on CircleCI
 # https://www.youtube.com/watch?v=PgIwBzXBn7M
 
+#Note: this probably lacks maturity
 version: 2.1
 commands:  
   back-end-run-command:
@@ -11,7 +12,8 @@ commands:
       - run: #Configuration of Postgresql
             echo "Starting the database work"    &&     
             sudo rm -rf /var/lib/apt/lists/* &&
-            sudo apt-get update &&               
+            sudo apt-get update &&          
+            sudo apt install -y postgresql
             sudo apt install -y postgresql-client 
             
             #sudo apt install apt-utils &&
@@ -38,12 +40,7 @@ executors:
     docker:
       # primary container
       # https://hub.docker.com/u/circleci/
-      - image: circleci/openjdk
-        environment:
-          TEST_DATABASE_URL: postgresql://root@localhost/circleci_test 
-      - image: circleci/postgres    
-        environment:
-          POSTGRES_PASSWORD: $DB_Pg_PASSWORD
+      - image: circleci/openjdk         
           
 
 jobs: 
