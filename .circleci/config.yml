@@ -7,7 +7,7 @@ commands:
     steps:
       - run: #Configuration of Postgresql
             echo "Starting the configuration of PostgreSQL"         
-            && docker
+            docker run circleci/postgresql -e POSTGRES_PASSWORD=$DB_PASSWORD
             #pg_ctlcluster 12 main start  
             #&& sudo -u postgres psql
             #&& DROP DATABASE $DB_NAME
