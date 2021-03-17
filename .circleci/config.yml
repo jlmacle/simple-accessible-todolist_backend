@@ -46,15 +46,15 @@ jobs:
   back-end-run-job:     
     executor: back-end-executor
     steps: 
-      - restore_cache:
-          keys:
-            - app-cache
+      #- restore_cache:
+      #    keys:
+      #      - app-cache
       - back-end-run-command   
-      - save_cache:
-          paths:
-            - "./"
-          key: 
-            app-cache
+      #- save_cache:
+      #    paths:
+      #      - "./"
+      #    key: 
+      #    app-cache
 
 workflows: 
   back-end-run-workflow: 
