@@ -15,7 +15,7 @@ commands:
             sudo apt-get update &&        
             echo "********** Postgresql installation"  &&
             sudo apt-get -y install postgresql &&
-            sudo -u postgres psql && CREATE $DB_USERNAME WITH ENCRYPTED PASSWORD $DB_PASSWORD; && CREATE DATABASE $DB_NAME OWNER $DB_USERNAME;                  
+            sudo -u postgres psql  CREATE $DB_USERNAME WITH ENCRYPTED PASSWORD $DB_PASSWORD; CREATE DATABASE $DB_NAME OWNER $DB_USERNAME;                  
 
 
 
