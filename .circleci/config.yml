@@ -6,13 +6,17 @@ commands:
   back-end-run-command:
     steps:
       - run: #Installation/configuration of Postgresql
-            echo $DB_NAME && echo $DB_URL && sudo apt-get update && sudo apt-get -y install postgresql && sudo pg_ctlcluster 12 main start  
-            && sudo -u postgres psql
-            && DROP DATABASE $DB_NAME
+            echo $DB_NAME && echo $DB_URL && sudo apt-get update && sudo apt-get -y install postgresql 
+            #&& sudo pg_ctlcluster 12 main start  
+            #&& sudo -u postgres psql
+            #&& DROP DATABASE $DB_NAME
             #&& CREATE $DB_USERNAME WITH ENCRYPTED PASSWORD $DB_PASSWORD; && CREATE DATABASE $DB_NAME OWNER $DB_USERNAME;
             
             # && git  clone https://github.com/jlmacle/AccessibleTodoList_Backend.git && cd AccessibleTodoList_Backend
             #  && psql -v  && mvn spring-boot:run
+
+            #/usr/lib/postgresql/12/bin/initdb -D /var/lib/postgresql/12/main --auth-local peer --auth-host md5
+            #The files belonging to this database system will be owned by user "postgres".
 
 executors:
   back-end-executor:
