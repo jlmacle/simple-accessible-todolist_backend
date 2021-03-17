@@ -10,9 +10,7 @@ commands:
   back-end-run-command:
     steps:
       - run: #Configuration of Postgresql
-            echo "Starting the configuration of PostgreSQL"  && 
-            sudo apt upgrade && 
-            sudo apt update &&
+            echo "Starting the configuration of PostgreSQL"  &&             
             sudo apt install -y postgresql-client    
             #sudo apt install apt-utils &&
             #sudo apt install docker &&
