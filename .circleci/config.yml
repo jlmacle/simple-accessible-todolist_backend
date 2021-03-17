@@ -2,13 +2,10 @@
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
-commands:
-  back-end-clone-command:
-    steps:
-      - run: git clone https://github.com/jlmacle/AccessibleTodoList_Backend.git && ls -la 
+commands:  
   back-end-run-command:
     steps:
-      - run: pwd && ls -la && cd AccessibleTodoList_Backend && mvn spring-boot:run
+      - run: git clone https://github.com/jlmacle/AccessibleTodoList_Backend.git && cd AccessibleTodoList_Backend && mvn spring-boot:run
 
 executors:
   back-end-executor:
@@ -21,16 +18,9 @@ jobs:
     steps: 
       - back-end-run-command   
 
-  back-end-clone-job:
-    executor: back-end-executor
-    steps:
-      - back-end-clone-command
-
 workflows: 
   back-end-run-workflow: 
-    jobs:
-      - back-end-clone-job
-      - back-end-run-job:
-          requires:
-          - back-end-clone-job
+    jobs:      
+      - back-end-run-job
+          
         
