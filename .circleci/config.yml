@@ -30,7 +30,7 @@ workflows:
   back-end-run-workflow: 
     jobs:
       - back-end-clone-job
-      - back-end-run-job
-        -requires:
+      - back-end-run-job:
+        requires:
           - back-end-clone-job
- 
+        
