@@ -7,6 +7,7 @@ commands:
     steps:
       - run: #Configuration of Postgresql
             echo "Starting the configuration of PostgreSQL"         
+            && psql
             #pg_ctlcluster 12 main start  
             #&& sudo -u postgres psql
             #&& DROP DATABASE $DB_NAME
