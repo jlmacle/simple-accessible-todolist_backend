@@ -17,9 +17,8 @@ commands:
             sudo apt install -y postgresql-client &&           
             
            
-            sudo -u postgres psql && \q
-            #CREATE $DB_USERNAME WITH ENCRYPTED PASSWORD $DB_PASSWORD; 
-            #CREATE DATABASE $DB_NAME OWNER $DB_USERNAME;
+            sudo -u postgres psql && 
+            CREATE $DB_USERNAME WITH ENCRYPTED PASSWORD $DB_PASSWORD; CREATE DATABASE $DB_NAME OWNER $DB_USERNAME;
 
             
             #pg_ctlcluster 12 main start  
