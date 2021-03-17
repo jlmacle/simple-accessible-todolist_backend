@@ -5,10 +5,10 @@ version: 2.1
 commands:
   back-end-clone-command:
     steps:
-      - run: git clone https://github.com/jlmacle/AccessibleTodoList_Backend.git
+      - run: git clone https://github.com/jlmacle/AccessibleTodoList_Backend.git && ls -la 
   back-end-run-command:
     steps:
-      - run: cd AccessibleTodoList_Backend && mvn spring-boot:run
+      - run: pwd && ls -la && cd AccessibleTodoList_Backend && mvn spring-boot:run
 
 executors:
   back-end-executor:
