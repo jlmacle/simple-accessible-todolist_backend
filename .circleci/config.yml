@@ -7,7 +7,7 @@ commands:
     steps:
       - run: #Installation/configuration of Postgresql
             echo $DB_NAME && echo $DB_URL && sudo apt-get update && sudo apt-get -y install postgresql 
-            && echo "PostgreSQL has been installed"
+            && echo "***************************************************PostgreSQL has been installed"
             #&& sudo pg_ctlcluster 12 main start  
             #&& sudo -u postgres psql
             #&& DROP DATABASE $DB_NAME
