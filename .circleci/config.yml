@@ -22,6 +22,9 @@ commands:
 executors:
   back-end-executor:
     docker:
+      # primary container
+      # https://hub.docker.com/u/circleci/
+      - image: circleci/openjdk
       - image: circleci/postgres     
           
 
