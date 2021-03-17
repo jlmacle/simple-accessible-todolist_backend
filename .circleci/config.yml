@@ -26,7 +26,7 @@ executors:
       # primary container
       # https://hub.docker.com/u/circleci/
       - image: circleci/openjdk
-      - image: circleci/postgres-ram     
+      - image: circleci/postgres    
           
 
 jobs: 
