@@ -6,14 +6,9 @@ commands:
   back-end-clone-command:
     steps:
       - run: git clone https://github.com/jlmacle/AccessibleTodoList_Backend.git
-      - run: cd AccessibleTodoList_Backend
-      - run: pwd
-      - run: ls -la
   back-end-run-command:
     steps:
-      - run: cd AccessibleTodoList_Backend
-      - run: pwd 
-      - run: ls -la
+      - run: AccessibleTodoList_Backend && pwd && ls -la
 
 executors:
   back-end-executor:
@@ -35,5 +30,5 @@ workflows:
   back-end-run-workflow: 
     jobs:
       - back-end-clone-job
-      #- back-end-run-job
+      - back-end-run-job
  
