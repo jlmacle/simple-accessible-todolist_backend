@@ -13,7 +13,7 @@
 # A read about PostgreSQL password issues
 # https://discuss.circleci.com/t/postgresql-image-password-not-specified-issue/34555?utm_medium=SEM&utm_source=gnb&utm_campaign=SEM-gb-DSA-Eng-emea&utm_content=&utm_term=dynamicSearch-&gclid=CjwKCAjw9MuCBhBUEiwAbDZ-7tHiU1_Nv7TLtzSCHr-7FGkcZIh2dcIvfI0lA7V9z-LPOhxDnnOMmRoC-a4QAvD_BwE
 
-#Note: this probably lacks maturity
+#Note: this may lack maturity
 version: 2.1
 commands:  
   back-end-run-command:
@@ -54,9 +54,11 @@ executors:
     docker:
       # primary container
       # https://hub.docker.com/u/circleci/
-      - image: circleci/openjdk        
-    environment:
-      POSTGRES_HOST_AUTH_METHOD: trust  
+      - image: circleci/openjdk   
+      - image: circleci/postgres     
+        auth:
+          username: DOCKER_HUB_ID
+          password: DOCKER_HUB_PASSWORD
         
       
           
