@@ -10,6 +10,9 @@
 # The following command   sudo rm -rf /var/lib/apt/lists/*  was useful to solve an issue with get-update.
 # https://support.circleci.com/hc/en-us/articles/360051749992-Build-fails-on-apt-get-update-command
 
+# A read about PostgreSQL password issues
+# https://discuss.circleci.com/t/postgresql-image-password-not-specified-issue/34555?utm_medium=SEM&utm_source=gnb&utm_campaign=SEM-gb-DSA-Eng-emea&utm_content=&utm_term=dynamicSearch-&gclid=CjwKCAjw9MuCBhBUEiwAbDZ-7tHiU1_Nv7TLtzSCHr-7FGkcZIh2dcIvfI0lA7V9z-LPOhxDnnOMmRoC-a4QAvD_BwE
+
 #Note: this probably lacks maturity
 version: 2.1
 commands:  
@@ -53,7 +56,7 @@ executors:
       # https://hub.docker.com/u/circleci/
       - image: circleci/openjdk        
     environment:
-      POSTGRES_PASSWORD: ""   
+      POSTGRES_HOST_AUTH_METHOD: trust  
         
       
           
