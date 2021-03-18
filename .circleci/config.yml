@@ -7,43 +7,44 @@
 # Docker Official Images
 # https://hub.docker.com/_/postgres/
 
+# The following command   sudo rm -rf /var/lib/apt/lists/*  was useful to solve an issue with get-update.
+# https://support.circleci.com/hc/en-us/articles/360051749992-Build-fails-on-apt-get-update-command
+
 #Note: this probably lacks maturity
 version: 2.1
 commands:  
   back-end-run-command:
     steps:
       - run: #Configuration of Postgresql
-            echo "Starting the database work"    &&     
-            # The following command was useful to solve an issue with get-update
-            # https://support.circleci.com/hc/en-us/articles/360051749992-Build-fails-on-apt-get-update-command
-            sudo rm -rf /var/lib/apt/lists/* &&
-            sudo apt-get update &&        
-            echo "********** Postgresql installation"  &&
-            sudo apt-get -y install postgresql &&
-            sudo service postgresql start &&
-            sudo -u postgres psql -c "CREATE $DB_USERNAME WITH ENCRYPTED PASSWORD $DB_PASSWORD; \q"  
-            #Need to understand how to pass the password issue
-            # \n CREATE DATABASE $DB_NAME OWNER $DB_USERNAME; \n \q &&
-            #echo "********** Database should have been created";               
+          echo "Starting the database work"    && 
+          sudo rm -rf /var/lib/apt/lists/* &&
+          sudo apt-get update &&        
+          echo "********** Postgresql installation"  &&
+          sudo apt-get -y install postgresql &&
+          sudo service postgresql start &&
+          sudo -u postgres psql -c "CREATE $DB_USERNAME WITH ENCRYPTED PASSWORD $DB_PASSWORD; \q"  
+          #Need to understand how to pass the password issue
+          # \n CREATE DATABASE $DB_NAME OWNER $DB_USERNAME; \n \q &&
+          #echo "********** Database should have been created";               
 
 
 
 
-            #postgres -D/var/lib/postgresql/9.6/main
-            #psql -d $TEST_DATABASE_URL -c "CREATE TABLE test (name CHAR(25));"
+          #postgres -D/var/lib/postgresql/9.6/main
+          #psql -d $TEST_DATABASE_URL -c "CREATE TABLE test (name CHAR(25));"
            
 
             
-            #pg_ctlcluster 12 main start  
-            #&& sudo -u postgres psql
-            #&& DROP DATABASE $DB_NAME;
-            #&& 
-            
-            # && git  clone https://github.com/jlmacle/AccessibleTodoList_Backend.git && cd AccessibleTodoList_Backend
-            #  && psql -v  && mvn spring-boot:run
+          #pg_ctlcluster 12 main start  
+          #&& sudo -u postgres psql
+          #&& DROP DATABASE $DB_NAME;
+          #&& 
+          
+          # && git  clone https://github.com/jlmacle/AccessibleTodoList_Backend.git && cd AccessibleTodoList_Backend
+          #  && psql -v  && mvn spring-boot:run
 
-            #/usr/lib/postgresql/12/bin/initdb -D /var/lib/postgresql/12/main --auth-local peer --auth-host md5
-            #The files belonging to this database system will be owned by user "postgres".
+          #/usr/lib/postgresql/12/bin/initdb -D /var/lib/postgresql/12/main --auth-local peer --auth-host md5
+          #The files belonging to this database system will be owned by user "postgres".
 
 executors:
   back-end-executor:
