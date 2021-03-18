@@ -19,12 +19,7 @@ commands:
   back-end-run-command:
     steps:
       - run: #Configuration of Postgresql
-          echo "Starting the database work"    && 
-          sudo rm -rf /var/lib/apt/lists/* &&
-          sudo apt-get update &&        
-          echo "********** Postgresql installation"  &&
-          sudo apt-get -y install postgresql &&
-          sudo service postgresql start &&
+          echo "Starting the database work"    &&           
           sudo -u postgres psql -c "\n\n\n"  
           #Need to understand how to pass the password issue
           # \n CREATE DATABASE $DB_NAME OWNER $DB_USERNAME; \n \q &&
