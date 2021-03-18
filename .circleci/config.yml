@@ -14,6 +14,8 @@ commands:
     steps:
       - run: #Configuration of Postgresql
             echo "Starting the database work"    &&     
+            # The following command was useful to solve an issue with get-update
+            # https://support.circleci.com/hc/en-us/articles/360051749992-Build-fails-on-apt-get-update-command
             sudo rm -rf /var/lib/apt/lists/* &&
             sudo apt-get update &&        
             echo "********** Postgresql installation"  &&
@@ -49,11 +51,10 @@ executors:
       # primary container
       # https://hub.docker.com/u/circleci/
       - image: circleci/openjdk            
-        environment:
-          TEST_DATABASE_URL: $DB_TEST_URL
-      - image: circle/postgresql:13.2-alpine
+        
+      
           
-          #https://www.postgresql.org/docs/9.0/libpq-envars.html
+
                
 
 jobs: 
