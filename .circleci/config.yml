@@ -19,9 +19,9 @@ commands:
   back-end-run-command:
     steps:
       - run: #Configuration of Postgresql
-          echo "Starting the database work"    &&  
-          sudo updatedb &&
-          whereis pg_ctl  
+          echo "Starting the database work"   &&
+          psql
+
           #/usr/local/bin/pg_ctl -D /var/lib/postgresql/data -l logfile start &&       
           #sudo -u postgres psql -c "\n\n\n"  
           #Need to understand how to pass the password issue
