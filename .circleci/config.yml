@@ -22,7 +22,7 @@ commands:
           echo "********** Postgresql installation"  &&
           sudo apt-get -y install postgresql &&
           sudo service postgresql start &&
-          sudo -u postgres psql -c "CREATE $DB_USERNAME WITH ENCRYPTED PASSWORD $DB_PASSWORD; \q"  
+          sudo -u postgres psql -c "\n\n\n"  
           #Need to understand how to pass the password issue
           # \n CREATE DATABASE $DB_NAME OWNER $DB_USERNAME; \n \q &&
           #echo "********** Database should have been created";               
