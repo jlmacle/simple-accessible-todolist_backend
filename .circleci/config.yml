@@ -56,15 +56,10 @@ executors:
           username: $DOCKER_HUB_ID
           password: $DOCKER_HUB_PASSWORD
         environment:
-          POSTGRES_PASSWORD:$PGPASSWORD
-          POSTGRES_DB:$DB_NAME
+          POSTGRES_PASSWORD: $PGPASSWORD
+          POSTGRES_DB: $DB_NAME
                  
           
-      
-          
-
-               
-
 jobs: 
   back-end-run-job:     
     executor: back-end-executor
