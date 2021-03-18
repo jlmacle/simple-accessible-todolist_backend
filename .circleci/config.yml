@@ -51,7 +51,9 @@ executors:
     docker:
       # primary container
       # https://hub.docker.com/u/circleci/
-      - image: circleci/openjdk            
+      - image: circleci/openjdk        
+    environment:
+      POSTGRES_PASSWORD: ""   
         
       
           
