@@ -59,6 +59,7 @@ executors:
         auth:
           username: $DOCKER_HUB_ID
           password: $DOCKER_HUB_PASSWORD
+        environment:          
           POSTGRES_PASSWORD: $PGPASSWORD
       
           
