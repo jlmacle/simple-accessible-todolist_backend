@@ -21,8 +21,8 @@ public class Configuration {
 	
 	// Addition for Grid 4 configuration. 
 	// Use of environment variables to pass the code quality check
-	public static final String CORS_ALLOWED_2 = System.getenv("CORS_ALLOWED_2");//Angular server
-	public static final String CORS_ALLOWED_3 = System.getenv("CORS_ALLOWED_3");//Angular server
+	//public static final String CORS_ALLOWED_2 = System.getenv("CORS_ALLOWED_2");//Angular server
+	//public static final String CORS_ALLOWED_3 = System.getenv("CORS_ALLOWED_3");//Angular server
 		
 	/**
 	 * Feeds some configuration information from environment variables.
@@ -50,9 +50,11 @@ public class Configuration {
 			{	
 					
 				//Grid 4 (compatible with a configuration for localhost)
-				String[] origins= {CORS_ALLOWED, CORS_ALLOWED_2, CORS_ALLOWED_3};
+				//String[] origins= {CORS_ALLOWED, CORS_ALLOWED_2, CORS_ALLOWED_3};
+				String[] origins= {CORS_ALLOWED};
 				
 				//Mappings for the CategoryController
+				registry.addMapping("/category").allowedOrigins(origins).allowedMethods("GET");
 				registry.addMapping("/category").allowedOrigins(origins);
 				registry.addMapping("/categories").allowedOrigins(origins).allowedMethods("GET");
 				registry.addMapping("/category/{id}").allowedOrigins(origins).allowedMethods("DELETE");
