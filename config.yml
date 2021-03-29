@@ -1,10 +1,23 @@
 # Use the latest 2.1 version of CircleCI pipeline process engine.
 # See: https://circleci.com/docs/2.0/configuration-reference
 
-campaign=SEM-gb-DSA-Eng-emea&utm_content=&utm_term=dynamicSearch-&gclid=CjwKCAjw9MuCBhBUEiwAbDZ-7tHiU1_Nv7TLtzSCHr-7FGkcZIh2dcIvfI0lA7V9z-LPOhxDnnOMmRoC-a4QAvD_BwE
+# How to get started with pre-built Docker images on CircleCI
+# https://www.youtube.com/watch?v=PgIwBzXBn7M
+
+# Docker Official Images
+# https://hub.docker.com/_/postgres/
+
+# The following command   sudo rm -rf /var/lib/apt/lists/*  was useful to solve an issue with get-update.
+# https://support.circleci.com/hc/en-us/articles/360051749992-Build-fails-on-apt-get-update-command
+
+# A read about PostgreSQL password issues
+# https://discuss.circleci.com/t/postgresql-image-password-not-specified-issue/34555?utm_medium=SEM&utm_source=gnb&utm_campaign=SEM-gb-DSA-Eng-emea&utm_content=&utm_term=dynamicSearch-&gclid=CjwKCAjw9MuCBhBUEiwAbDZ-7tHiU1_Nv7TLtzSCHr-7FGkcZIh2dcIvfI0lA7V9z-LPOhxDnnOMmRoC-a4QAvD_BwE
 
 #Note: this may lack maturity
 version: 2.1
+
+orbs:
+  maven: circleci/maven@1.1
 
 commands:
   back-end-run-command:
@@ -44,15 +57,34 @@ executors:
       # primary container
       # https://hub.docker.com/u/circleci/
       - image: circleci/openjdk
+      - image: circleci/postgres
+        auth:
+          username: $DOCKER_HUB_ID
+          password: $DOCKER_HUB_PASSWORD
+        environment:
+          POSTGRES_PASSWORD: $PGPASSWORD
+          POSTGRES_DB: $DB_NAME
 
 
 jobs:
-  back-end-conf-check:
+  back-end-run-job:
     executor: back-end-executor
-
+    steps:
+      #- restore_cache:
+      #    keys:
+      #      - app-cache
+      - back-end-run-command
+      #- save_cache:
+      #    paths:
+      #      - "./"
+      #    key:
+      #    app-cache
 
 workflows:
-  back-end-conf-check-workflow:
+  #maven_test: //When the back-end configuration is done
+  #  jobs:
+  #    - maven/test
+  back-end-run-workflow:
     jobs:
-      - back-end-conf-check
+      - back-end-run-job
 
