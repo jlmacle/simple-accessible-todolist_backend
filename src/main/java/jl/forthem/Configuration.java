@@ -21,7 +21,7 @@ public class Configuration {
 	
 	// Addition for Grid 4 configuration. 
 	// Use of environment variables to pass a code quality check
-	public static final String CORS_ALLOWED_2 = System.getenv("CORS_ALLOWED_2");//Angular server
+	//public static final String CORS_ALLOWED_2 = System.getenv("CORS_ALLOWED_2");//Angular server
 	//public static final String CORS_ALLOWED_3 = System.getenv("CORS_ALLOWED_3");//Angular server
 		
 	/**
