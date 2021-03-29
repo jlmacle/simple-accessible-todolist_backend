@@ -1,6 +1,5 @@
 package jl.forthem.controllers;
 
-import jl.forthem.Configuration;
 import jl.forthem.dto.CategoryDTO;
 
 import java.util.Collections;
@@ -9,7 +8,6 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,9 +25,17 @@ public class CategoryController {
 	@Autowired
 	CategoryRepository repository;
 	
+	@GetMapping("/")
+	public String getIndex()
+	{
+		return "Index page. <br>Do you try to reach <a href=\"/categories\">the categories</a>,"
+				+ "<br> or  <a href=\"/items\"> the items</a>?";
+	}
+	
 	
 	@PostMapping("/category")
-	public Category addCategory(@RequestBody CategoryDTO categoryDto) {
+	public Category addCategory(@RequestBody CategoryDTO categoryDto) 
+	{
 		
 		if (logger.isDebugEnabled()) {logger.debug(String.format("Adding category: %s ",categoryDto.toString()));}
 		Category category = new Category();
@@ -38,7 +44,6 @@ public class CategoryController {
 		return repository.save(category);
 	}	
 	
-	@SuppressWarnings("unchecked")
 	@GetMapping("/categories")
 	public List<Category> getCategories(){
 		List<Category> list = repository.findAll();

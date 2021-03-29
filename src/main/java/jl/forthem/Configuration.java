@@ -21,6 +21,7 @@ public class Configuration {
 	
 	//Addition for Grid 4 configuration. 
 	public static final String CORS_ALLOWED_2 = "http://192.168.1.15:4200";//Angular server
+	public static final String CORS_ALLOWED_3 = "http://192.168.1.16:4200";//Angular server
 		
 	/**
 	 * Feeds some configuration information from environment variables.
@@ -48,7 +49,7 @@ public class Configuration {
 			{	
 					
 				//Grid 4 (compatible with a configuration for localhost)
-				String[] origins= {CORS_ALLOWED, CORS_ALLOWED_2};
+				String[] origins= {CORS_ALLOWED, CORS_ALLOWED_2, CORS_ALLOWED_3};
 				
 				//Mappings for the CategoryController
 				registry.addMapping("/category").allowedOrigins(origins);
