@@ -6,8 +6,12 @@ commands:
     steps:
       - checkout
       - run: #Configuration check
-          echo "Starting the configuration check."   && pwd && ls 
-          && sudo apt install tree && tree src
+          echo "Starting the configuration check." 
+          && sudo apt install tree && tree src 
+          && cd src/main/java/jl/forthem/ 
+          && grep "//public static final String CORS_ALLOWED_2" ./Configuration.java 
+          && grep "//public static final String CORS_ALLOWED_3" ./Configuration.java 
+          && grep "//String[] origins= {CORS_ALLOWED, CORS_ALLOWED_2" ./Configuration.java
 
 executors:
   back-end-executor:
