@@ -11,7 +11,7 @@ commands:
           && cd src/main/java/jl/forthem/ 
           && grep "//public static final String CORS_ALLOWED_2" ./Configuration.java 
           && grep "//public static final String CORS_ALLOWED_3" ./Configuration.java 
-          && grep "//String[] origins= {CORS_ALLOWED, CORS_ALLOWED_2" ./Configuration.java
+          && grep "//String\[] origins= {CORS_ALLOWED, CORS_ALLOWED_2" ./Configuration.java
 
 executors:
   back-end-executor:
