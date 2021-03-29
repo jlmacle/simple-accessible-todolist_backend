@@ -6,8 +6,8 @@ commands:
     steps:
       - checkout
       - run: #Configuration check
-          echo "Starting the configuration check."   && pwd && ls \
-          sudo apt install tree
+          echo "Starting the configuration check."   && pwd && ls 
+          && sudo apt install tree
 
 executors:
   back-end-executor:
