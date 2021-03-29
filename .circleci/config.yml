@@ -7,7 +7,7 @@ commands:
       - checkout
       - run: #Configuration check
           echo "Starting the configuration check."   && pwd && ls 
-          && sudo apt install tree
+          && sudo apt install tree && tree src
 
 executors:
   back-end-executor:
