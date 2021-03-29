@@ -4,8 +4,9 @@ version: 2.1
 commands:
   back-end-check-config-command:
     steps:
+      - checkout
       - run: #Configuration check
-          echo "Starting the configuration check."
+          echo "Starting the configuration check."         
 
 executors:
   back-end-executor:
