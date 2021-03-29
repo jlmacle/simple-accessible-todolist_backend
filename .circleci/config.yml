@@ -1,38 +1,9 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine. 
-# See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
-commands:  
-  back-end-run-command:
-    steps:
-      - run: git clone https://github.com/jlmacle/AccessibleTodoList_Backend.git && cd AccessibleTodoList_Backend && mvn spring-boot:run      
+orbs:
+  maven: circleci/maven@1.1
 
-executors:
-  back-end-executor:
-    docker:
-      - image: cimg/openjdk:11.0
-        environment:
-              DB_URL: ${{secrets.DB_URL}}
-              DB_USERNAME: ${{secrets.DB_USERNAME}}
-              DB_PASSWORD: ${{secrets.DB_PASSWORD}}
-
-jobs: 
-  back-end-run-job:     
-    executor: back-end-executor
-    steps: 
-      - restore_cache:
-          keys:
-            - app-cache
-      - back-end-run-command           
-      - save_cache:
-          paths:
-            - "./"
-          key: 
-            app-cache
-
-workflows: 
-  back-end-run-workflow: 
-    jobs:      
-      - back-end-run-job
-          
-        
+workflows:
+  maven_test:
+    jobs:
+      - maven/test
