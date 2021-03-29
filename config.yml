@@ -1,0 +1,90 @@
+# Use the latest 2.1 version of CircleCI pipeline process engine.
+# See: https://circleci.com/docs/2.0/configuration-reference
+
+# How to get started with pre-built Docker images on CircleCI
+# https://www.youtube.com/watch?v=PgIwBzXBn7M
+
+# Docker Official Images
+# https://hub.docker.com/_/postgres/
+
+# The following command   sudo rm -rf /var/lib/apt/lists/*  was useful to solve an issue with get-update.
+# https://support.circleci.com/hc/en-us/articles/360051749992-Build-fails-on-apt-get-update-command
+
+# A read about PostgreSQL password issues
+# https://discuss.circleci.com/t/postgresql-image-password-not-specified-issue/34555?utm_medium=SEM&utm_source=gnb&utm_campaign=SEM-gb-DSA-Eng-emea&utm_content=&utm_term=dynamicSearch-&gclid=CjwKCAjw9MuCBhBUEiwAbDZ-7tHiU1_Nv7TLtzSCHr-7FGkcZIh2dcIvfI0lA7V9z-LPOhxDnnOMmRoC-a4QAvD_BwE
+
+#Note: this may lack maturity
+version: 2.1
+
+orbs:
+  maven: circleci/maven@1.1
+
+commands:
+  back-end-run-command:
+    steps:
+      - run: #Configuration of Postgresql
+          echo "Starting the database work"   &&
+          psql
+
+          #/usr/local/bin/pg_ctl -D /var/lib/postgresql/data -l logfile start &&
+          #sudo -u postgres psql -c "\n\n\n"
+          #Need to understand how to pass the password issue
+          # \n CREATE DATABASE $DB_NAME OWNER $DB_USERNAME; \n \q &&
+          #echo "********** Database should have been created";
+
+
+
+
+          #postgres -D/var/lib/postgresql/9.6/main
+          #psql -d $TEST_DATABASE_URL -c "CREATE TABLE test (name CHAR(25));"
+
+
+
+          #pg_ctlcluster 12 main start
+          #&& sudo -u postgres psql
+          #&& DROP DATABASE $DB_NAME;
+          #&&
+
+          # && git  clone https://github.com/jlmacle/AccessibleTodoList_Backend.git && cd AccessibleTodoList_Backend
+          #  && psql -v  && mvn spring-boot:run
+
+          #/usr/lib/postgresql/12/bin/initdb -D /var/lib/postgresql/12/main --auth-local peer --auth-host md5
+          #The files belonging to this database system will be owned by user "postgres".
+
+executors:
+  back-end-executor:
+    docker:
+      # primary container
+      # https://hub.docker.com/u/circleci/
+      - image: circleci/openjdk
+      - image: circleci/postgres
+        auth:
+          username: $DOCKER_HUB_ID
+          password: $DOCKER_HUB_PASSWORD
+        environment:
+          POSTGRES_PASSWORD: $PGPASSWORD
+          POSTGRES_DB: $DB_NAME
+
+
+jobs:
+  back-end-run-job:
+    executor: back-end-executor
+    steps:
+      #- restore_cache:
+      #    keys:
+      #      - app-cache
+      - back-end-run-command
+      #- save_cache:
+      #    paths:
+      #      - "./"
+      #    key:
+      #    app-cache
+
+workflows:
+  #maven_test: //When the back-end configuration is done
+  #  jobs:
+  #    - maven/test
+  back-end-run-workflow:
+    jobs:
+      - back-end-run-job
+
