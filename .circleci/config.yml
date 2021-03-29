@@ -2,7 +2,7 @@
 version: 2.1
 
 commands:
-  back-end-check-config-command:
+  back-end-config-check-command:
     steps:
       - checkout
       - run: #Configuration check
@@ -23,7 +23,7 @@ jobs:
   back-end-config-check-job:
     executor: back-end-executor
     steps:
-      - back-end-check-config-command      
+      - back-end-config-check-command      
 
 workflows:  
   back-end-config-check-workflow:
