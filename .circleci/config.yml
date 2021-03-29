@@ -6,8 +6,7 @@ commands:
     steps:
       - checkout
       - run: #Configuration check
-          echo "Starting the configuration check."   
-          pwd      
+          echo "Starting the configuration check."   && cd AccessibleTodoList_Backend && pwd
 
 executors:
   back-end-executor:
