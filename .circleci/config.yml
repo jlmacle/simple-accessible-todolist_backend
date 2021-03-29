@@ -6,7 +6,7 @@ commands:
     steps:
       - checkout
       - run: #Configuration check
-          echo "Starting the configuration check."   && pwd
+          echo "Starting the configuration check."   && pwd && ls
 
 executors:
   back-end-executor:
