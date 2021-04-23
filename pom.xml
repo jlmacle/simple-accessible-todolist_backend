@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>jl.forthem</groupId>
-	<artifactId>AccessibleTodoList_BackEnd</artifactId>
+	<artifactId>accessible-todo-list_back-end</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>AccessibleTodoList_BackEnd</name>
 	<description>Back end for simple accessible todo list.</description>
@@ -52,11 +52,13 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<layers>true</layers>
-				</configuration>
+			    <groupId>org.springframework.boot</groupId>
+			    <artifactId>spring-boot-maven-plugin</artifactId>
+			    <configuration>
+			        <layers>
+			            <enabled>true</enabled>
+			        </layers>
+			    </configuration>				
 			</plugin>
 		</plugins>
 	</build>

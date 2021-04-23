@@ -34,8 +34,8 @@ public class Configuration {
 		DataSourceBuilder<?> dataSourceBuilder = DataSourceBuilder.create();
 		dataSourceBuilder.driverClassName("org.postgresql.Driver");
 		dataSourceBuilder.url(System.getenv("DB_URL"));
-		dataSourceBuilder.password(System.getenv("DB_PASSWORD"));
-		dataSourceBuilder.username(System.getenv("DB_USERNAME"));
+		dataSourceBuilder.password(System.getenv("DB_PASSWORD"));		
+		dataSourceBuilder.username(System.getenv("DB_USERNAME"));		
 		return dataSourceBuilder.build();
 		
 	}
