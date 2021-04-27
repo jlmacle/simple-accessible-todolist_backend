@@ -15,7 +15,7 @@
 	<description>Back end for simple accessible todo list.</description>
 
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>11</java.version>
 	 	<sonar.projectKey>jlmacle_AccessibleTodoList_Backend</sonar.projectKey>
 	  	<sonar.organization>jlmacle</sonar.organization>
 	  	<sonar.host.url>https://sonarcloud.io</sonar.host.url>
@@ -26,6 +26,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
+		<dependency>
+		  <groupId>org.springframework.boot</groupId>
+		  <artifactId>spring-boot-loader</artifactId>
+		  </dependency>
 		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
 		<dependency>
 		    <groupId>org.springframework.boot</groupId>
