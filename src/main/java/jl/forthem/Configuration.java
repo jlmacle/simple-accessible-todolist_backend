@@ -118,7 +118,7 @@ public class Configuration {
 			logInfoEnabled(logger,"Secret value extracted : %s",secret);
 		} catch (IOException e) {
 			logInfoEnabled(logger,"Caught an IOException in extractDockerSecretFromFile: %s",e.getLocalizedMessage());
-			e.printStackTrace();
+			//e.printStackTrace: suppressed to avoid a security hotspot.
 		}		
 		return secret;
 	}
