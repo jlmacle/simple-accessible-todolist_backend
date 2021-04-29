@@ -25,6 +25,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class Configuration {	
 	private static Logger logger = LoggerFactory.getLogger(Configuration.class);	
 	public static final String CORS_ALLOWED = "http://localhost:4200";
+	public static final String CORS_ALLOWED_ = "http://127.0.0.1:4200";
 	
 	// Addition for Grid 4 configuration. 
 	// Use of environment variables to pass a code quality check
@@ -72,10 +73,7 @@ public class Configuration {
 		{
 			dbURL =  System.getenv("DB_URL");			
 		}
-		logInfoEnabled(logger,"dbURL: %s",dbURL);
-		logInfoEnabled(logger,"dbUSERNAME: %s",dbUSERNAME);
-		logInfoEnabled(logger,"dbPASSWORD: %s",dbPASSWORD);
-		
+				
 		dataSourceBuilder.url(dbURL);	
 		dataSourceBuilder.username(dbUSERNAME);
 		dataSourceBuilder.password(dbPASSWORD);				
@@ -94,7 +92,7 @@ public class Configuration {
 					
 				//Grid 4 
 				//String[] origins= {CORS_ALLOWED, CORS_ALLOWED_2, CORS_ALLOWED_3};
-				String[] origins= {CORS_ALLOWED};
+				String[] origins= {CORS_ALLOWED, CORS_ALLOWED_};
 				
 				//Mappings for the CategoryController
 				registry.addMapping("/category").allowedOrigins(origins).allowedMethods("GET");
