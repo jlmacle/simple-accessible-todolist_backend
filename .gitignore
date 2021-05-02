@@ -1,6 +1,6 @@
 HELP.md
 target/*
-z_build_script/context/*.jar
+#z_build_script/context/*.jar
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
