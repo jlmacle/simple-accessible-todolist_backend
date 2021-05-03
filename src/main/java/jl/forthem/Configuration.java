@@ -73,7 +73,10 @@ public class Configuration {
 		{
 			dbURL =  System.getenv("DB_URL");			
 		}
-				
+		
+		logInfoEnabled(logger, "Valeur de DB_URL: %s",dbURL );
+		logInfoEnabled(logger, "Valeur de DB_USERNAME: %s",dbUSERNAME);
+		logInfoEnabled(logger, "Valeur de DB_PASSWORD: %s",dbPASSWORD);
 		dataSourceBuilder.url(dbURL);	
 		dataSourceBuilder.username(dbUSERNAME);
 		dataSourceBuilder.password(dbPASSWORD);				
