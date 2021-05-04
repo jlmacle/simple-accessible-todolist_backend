@@ -1,4 +1,4 @@
-The back-end for this project of accessible to-do list uses Spring and PostgreSQL.
+The back-end for this project of simple accessible to-do list uses Spring and PostgreSQL.
 
 
 Instructions for running the back-end code are available:
