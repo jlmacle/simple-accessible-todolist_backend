@@ -26,6 +26,8 @@ public class Configuration {
 	private static Logger logger = LoggerFactory.getLogger(Configuration.class);	
 	public static final String CORS_ALLOWED = "http://localhost:4200";
 	public static final String CORS_ALLOWED_ = "http://127.0.0.1:4200";
+	public static final String CORS_ALLOWED_80 = "http://localhost";
+	public static final String CORS_ALLOWED_80_ = "http://127.0.0.1";
 	
 	// Addition for Grid 4 configuration. 
 	// Use of environment variables to pass a code quality check
@@ -95,7 +97,7 @@ public class Configuration {
 					
 				//Grid 4 
 				//String[] origins= {CORS_ALLOWED, CORS_ALLOWED_2, CORS_ALLOWED_3};
-				String[] origins= {CORS_ALLOWED, CORS_ALLOWED_};
+				String[] origins= {CORS_ALLOWED, CORS_ALLOWED_,CORS_ALLOWED_80,CORS_ALLOWED_80_};
 				
 				//Mappings for the CategoryController
 				registry.addMapping("/category").allowedOrigins(origins).allowedMethods("GET");
