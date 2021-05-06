@@ -121,7 +121,7 @@ public class Configuration {
 			secret = Files.readString(Paths.get(pathToSecret));
 			logInfoEnabled(logger,"Secret value extracted : %s",secret);
 		} catch (IOException e) {
-			logInfoEnabled(logger,"Caught an IOException in extractDockerSecretFromFile: %s",e.getLocalizedMessage());
+			logInfoEnabled(logger,"*** Caught an IOException in extractDockerSecretFromFile: %s",e.getLocalizedMessage());
 			e.printStackTrace(); //suppressed to avoid a security hotspot.
 		}		
 		return secret;
