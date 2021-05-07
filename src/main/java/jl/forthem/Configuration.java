@@ -28,6 +28,7 @@ public class Configuration {
 	public static final String CORS_ALLOWED_ = "http://127.0.0.1:4200";
 	public static final String CORS_ALLOWED_80 = "http://localhost";
 	public static final String CORS_ALLOWED_80_ = "http://127.0.0.1";
+	public static final String CORS_ALLOWED_Azure  = "https://test-atl.azurewebsites.net";
 	
 	// Addition for Grid 4 configuration. 
 	// Use of environment variables to pass a code quality check
@@ -97,7 +98,7 @@ public class Configuration {
 					
 				//Grid 4 
 				//String[] origins= {CORS_ALLOWED, CORS_ALLOWED_2, CORS_ALLOWED_3};
-				String[] origins= {CORS_ALLOWED, CORS_ALLOWED_,CORS_ALLOWED_80,CORS_ALLOWED_80_};
+				String[] origins= {CORS_ALLOWED, CORS_ALLOWED_,CORS_ALLOWED_80,CORS_ALLOWED_80_,CORS_ALLOWED_Azure};
 				
 				//Mappings for the CategoryController
 				registry.addMapping("/category").allowedOrigins(origins).allowedMethods("GET");
@@ -120,8 +121,8 @@ public class Configuration {
 			secret = Files.readString(Paths.get(pathToSecret));
 			logInfoEnabled(logger,"Secret value extracted : %s",secret);
 		} catch (IOException e) {
-			logInfoEnabled(logger,"Caught an IOException in extractDockerSecretFromFile: %s",e.getLocalizedMessage());
-			//e.printStackTrace: suppressed to avoid a security hotspot.
+			logInfoEnabled(logger,"*** Caught an IOException in extractDockerSecretFromFile: %s",e.getLocalizedMessage());
+			e.printStackTrace(); //suppressed to avoid a security hotspot.
 		}		
 		return secret;
 	}
