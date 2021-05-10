@@ -1,5 +1,6 @@
-name: Build
+name: SonarCloud_GHAction
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
