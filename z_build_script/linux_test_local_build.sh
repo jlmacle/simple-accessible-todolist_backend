@@ -6,7 +6,7 @@ sudo service postgresql start
 sleep 60
 
 echo "Remaining Docker services:"
-sudo docker service ls.
+sudo docker service ls
 
 cd ..
 mvn package

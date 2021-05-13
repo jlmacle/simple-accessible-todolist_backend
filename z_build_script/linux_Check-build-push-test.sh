@@ -14,7 +14,7 @@ echo "Waiting for the analysis to be done."
 sleep 100 
 
 echo "Starting a browser to check the result of the analysis."
-chromium-browser http://localhost:9000
+chromium-browser http://localhost:9000 &
 sleep 100
 
 #--------------------------------------------------------------------------------------------------------
@@ -72,9 +72,9 @@ echo "Removing potential Ubuntu postgreSQL service"
 sudo service postgresql stop &> /dev/null
 sleep 20
 
-sudo docker stack deploy -c z_docker_compose/docker-compose-stack.yml
+sudo docker stack deploy -c z_docker_compose/docker-compose-stack.yml stack
 
 sleep 120
-chromium-browser http://localhost:8080
+chromium-browser http://localhost:8080 &
 
 
