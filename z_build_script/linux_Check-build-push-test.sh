@@ -14,7 +14,7 @@ echo "Waiting for the analysis to be done."
 sleep 100 
 
 echo "Starting a browser to check the result of the analysis."
-chromium-browser http:// http://localhost:9000
+chromium-browser http://localhost:9000
 sleep 100
 
 #--------------------------------------------------------------------------------------------------------
@@ -77,10 +77,10 @@ cd
 sudo docker service create --publish published=8080,target=8080 \
 --secret POSTGRES_PASSWORD -e POSTGRES_PASSWORD_FILE=/run/secrets/POSTGRES_PASSWORD \
 --secret POSTGRES_USER -e POSTGRES_USER_FILE=/run/secrets/POSTGRES_USER \
---secret POSTGRES_DB -e POSTGRES_DB_FILE=/run/secrets/POSTGRES_DB 
+--secret POSTGRES_DB -e POSTGRES_DB_FILE=/run/secrets/POSTGRES_DB \
 --secret DB_JDBC_ROOT -e DB_JDBC_ROOT_FILE=/run/secrets/DB_JDBC_ROOT --name atl-back-end jlmacle/back-end:v0.9
 
 echo "Waiting for the back-end to start"
-chromium-browser http:// http://localhost:8080
+chromium-browser http://localhost:8080
 
 
