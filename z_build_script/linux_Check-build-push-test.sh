@@ -21,11 +21,15 @@ sleep 100
 # Building the jar file
 #--------------------------------------------------------------------------------------------------------
 echo "Jar build. The PostgreSQL service must be running."
+sudo docker stack rm stack &>/dev/null
+echo "Waiting for a potential stack to be removed."
+sleep 20
 sudo service postgresql start
 sleep 60
 
-#removing potential stack services
-sudo docker stack rm stack &> /dev/null
+echo "Remaining Docker services:"
+sudo docker service ls.
+
 cd ..
 mvn package
 
