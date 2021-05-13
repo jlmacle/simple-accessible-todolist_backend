@@ -25,13 +25,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class Configuration {	
 	private static Logger logger = LoggerFactory.getLogger(Configuration.class);	
 	public static final String CORS_ALLOWED = "http://localhost";
-	public static final String CORS_ALLOWED_ = "http://127.0.0.1";
+	public static final String CORS_ALLOWED_2 = "http://127.0.0.1";
 	public static final String CORS_ALLOWED_4200 = "http://localhost:4200";
-	public static final String CORS_ALLOWED_4200_ = "http://127.0.0.1:4200";
+	public static final String CORS_ALLOWED_4200_2 = "http://127.0.0.1:4200";
 	public static final String CORS_ALLOWED_80 = "http://localhost:80";
-	public static final String CORS_ALLOWED_80_ = "http://127.0.0.1:80";
-	public static final String CORS_ALLOWED_Azure  = "https://test-atl.azurewebsites.net";
-	public static final String CORS_ALLOWED_Azure_80  = "https://test-atl.azurewebsites.net:80";
+	public static final String CORS_ALLOWED_80_2 = "http://127.0.0.1:80";
+	public static final String CORS_ALLOWED_AZURE  = "https://test-atl.azurewebsites.net";
+	public static final String CORS_ALLOWED_AZURE_80  = "https://test-atl.azurewebsites.net:80";
 	
 	
 	// Addition for Grid 4 configuration. 
@@ -102,7 +102,7 @@ public class Configuration {
 					
 				//Grid 4 
 				//String[] origins= {CORS_ALLOWED, CORS_ALLOWED_2, CORS_ALLOWED_3};
-				String[] origins= {CORS_ALLOWED, CORS_ALLOWED_,CORS_ALLOWED_80,CORS_ALLOWED_80_,CORS_ALLOWED_4200,CORS_ALLOWED_4200_,CORS_ALLOWED_Azure,CORS_ALLOWED_Azure_80};
+				String[] origins= {CORS_ALLOWED, CORS_ALLOWED_2,CORS_ALLOWED_80,CORS_ALLOWED_80_2,CORS_ALLOWED_4200,CORS_ALLOWED_4200_2,CORS_ALLOWED_AZURE,CORS_ALLOWED_AZURE_80};
 				
 				//Mappings for the CategoryController
 				registry.addMapping("/category").allowedOrigins(origins).allowedMethods("GET");
@@ -127,7 +127,7 @@ public class Configuration {
 			logInfoEnabled(logger,"Secret value extracted : %s",secret);
 		} catch (IOException e) {
 			logInfoEnabled(logger,"*** Caught an IOException in extractDockerSecretFromFile: %s",e.getLocalizedMessage());
-			e.printStackTrace(); //suppressed to avoid a security hotspot.
+			//e.printStackTrace //suppressed to avoid a security hotspot.
 		}		
 		return secret;
 	}
