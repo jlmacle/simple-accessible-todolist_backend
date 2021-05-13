@@ -14,18 +14,22 @@ echo "Waiting for the analysis to be done."
 sleep 100 
 
 echo "Starting a browser to check the result of the analysis."
-chromium-browser http://localhost:9000
+chromium-browser http://localhost:9000 &
 sleep 100
 
 #--------------------------------------------------------------------------------------------------------
 # Building the jar file
 #--------------------------------------------------------------------------------------------------------
 echo "Jar build. The PostgreSQL service must be running."
+sudo docker stack rm stack &>/dev/null
+echo "Waiting for a potential stack to be removed."
+sleep 20
 sudo service postgresql start
 sleep 60
 
-#removing potential stack services
-sudo docker stack rm stack &> /dev/null
+echo "Remaining Docker services:"
+sudo docker service ls
+
 cd ..
 mvn package
 
@@ -68,9 +72,9 @@ echo "Removing potential Ubuntu postgreSQL service"
 sudo service postgresql stop &> /dev/null
 sleep 20
 
-sudo docker stack deploy -c z_docker_compose/docker-compose-stack.yml
+sudo docker stack deploy -c z_docker_compose/docker-compose-stack.yml stack
 
 sleep 120
-chromium-browser http://localhost:8080
+chromium-browser http://localhost:8080 &
 
 
