@@ -28,8 +28,8 @@ public class CategoryController {
 	@GetMapping("/")
 	public String getIndex()
 	{
-		return "Index page. <br> :)  Do you try to reach <a href=\"/categories\">the categories</a>,"
-				+ "<br> or  <a href=\"/items\"> the items</a>? :)";
+		return "Index page. <br>  Do you try to reach <a href=\"/categories\">the categories</a>,"
+				+ "<br> or  <a href=\"/items\"> the items</a>? ";
 	}
 	
 	
