@@ -72,9 +72,9 @@ echo "Removing potential Ubuntu postgreSQL service"
 sudo service postgresql stop &> /dev/null
 sleep 20
 
-sudo docker stack deploy -c z_docker_compose/docker-compose-stack.yml stack
+sudo docker stack deploy -c z_docker_compose/docker-compose-stack-dockerHub.yml stack
 
 sleep 120
-chromium-browser http://localhost:8080 &
+chromium-browser http://127.0.0.1:8080 &
 
 
