@@ -104,7 +104,7 @@ public class Configuration {
 				//String[] origins= {CORS_ALLOWED, CORS_ALLOWED_2, CORS_ALLOWED_3};
 				String[] origins= {CORS_ALLOWED, CORS_ALLOWED_2,CORS_ALLOWED_80,CORS_ALLOWED_80_2,
 						CORS_ALLOWED_4200,CORS_ALLOWED_4200_2,CORS_ALLOWED_AZURE,CORS_ALLOWED_AZURE_80, 
-						CORS_ALLOWED_STATIC_15, CORS_ALLOWED_ANDROID_EMULATOR_LOOPBACK};
+						CORS_ALLOWED_STATIC_15};
 				
 				//Mappings for the CategoryController
 				registry.addMapping("/category").allowedOrigins(origins).allowedMethods("GET");
