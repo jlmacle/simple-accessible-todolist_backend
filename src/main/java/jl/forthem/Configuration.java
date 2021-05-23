@@ -32,7 +32,6 @@ public class Configuration {
 	public static final String CORS_ALLOWED_80_2 = "http://127.0.0.1:80";
 	public static final String CORS_ALLOWED_AZURE  = "https://test-atl.azurewebsites.net";
 	public static final String CORS_ALLOWED_AZURE_80  = "https://test-atl.azurewebsites.net:80";
-	public static final String CORS_ALLOWED_ANDROID_EMULATOR_LOOPBACK =  "http://192.168.1.1:4200";
 	
 	
 	// Addition for Grid 4 configuration. 
