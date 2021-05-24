@@ -32,11 +32,13 @@ public class Configuration {
 	public static final String CORS_ALLOWED_80_2 = "http://127.0.0.1:80";
 	public static final String CORS_ALLOWED_AZURE  = "https://test-atl.azurewebsites.net";
 	public static final String CORS_ALLOWED_AZURE_80  = "https://test-atl.azurewebsites.net:80";
-	
+
 	
 	// Addition for Grid 4 configuration. 
 	// Use of environment variables to pass a code quality check
-	public static final String CORS_ALLOWED_STATIC_15 = System.getenv("CORS_ALLOWED_STATIC_15");//Angular server
+	public static final String CORS_ALLOWED_STATIC_12 = System.getenv("CORS_ALLOWED_STATIC_12");
+	public static final String CORS_ALLOWED_STATIC_15 = System.getenv("CORS_ALLOWED_STATIC_15");
+	public static final String CORS_ALLOWED_STATIC_16 = System.getenv("CORS_ALLOWED_STATIC_16");
 	
 		
 	/**
@@ -104,7 +106,8 @@ public class Configuration {
 				//String[] origins= {CORS_ALLOWED, CORS_ALLOWED_2, CORS_ALLOWED_3};
 				String[] origins= {CORS_ALLOWED, CORS_ALLOWED_2,CORS_ALLOWED_80,CORS_ALLOWED_80_2,
 						CORS_ALLOWED_4200,CORS_ALLOWED_4200_2,CORS_ALLOWED_AZURE,CORS_ALLOWED_AZURE_80, 
-						CORS_ALLOWED_STATIC_15};
+						CORS_ALLOWED_STATIC_12,CORS_ALLOWED_STATIC_15,CORS_ALLOWED_STATIC_16};
+
 				
 				//Mappings for the CategoryController
 				registry.addMapping("/category").allowedOrigins(origins).allowedMethods("GET");
