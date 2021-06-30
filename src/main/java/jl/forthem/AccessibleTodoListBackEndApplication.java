@@ -19,7 +19,7 @@ public class AccessibleTodoListBackEndApplication {
 	@Bean
 	public CommandLineRunner createMiscCategoryAtStartup(CategoryRepository repository) {
 		return args -> {
-			Category miscCategory = new Category(1, "Misc.", null);
+			Category miscCategory = new Category(1, "Uncategorized", null);
 			repository.save(miscCategory);
 		};
 	}
