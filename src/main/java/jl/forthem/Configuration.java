@@ -102,8 +102,7 @@ public class Configuration {
 			public void addCorsMappings(CorsRegistry registry)
 			{	
 					
-				//Grid 4 
-				//String[] origins= {CORS_ALLOWED, CORS_ALLOWED_2, CORS_ALLOWED_3};
+				//Grid 4 				
 				String[] origins= {CORS_ALLOWED, CORS_ALLOWED_2,CORS_ALLOWED_80,CORS_ALLOWED_80_2,
 						CORS_ALLOWED_4200,CORS_ALLOWED_4200_2,CORS_ALLOWED_AZURE,CORS_ALLOWED_AZURE_80, 
 						CORS_ALLOWED_STATIC_12,CORS_ALLOWED_STATIC_15,CORS_ALLOWED_STATIC_16};
