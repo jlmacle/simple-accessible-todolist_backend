@@ -24,19 +24,17 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableWebMvc
 public class Configuration {	
 	private static Logger logger = LoggerFactory.getLogger(Configuration.class);	
-	public static final String CORS_ALLOWED = "http://localhost";
-	public static final String CORS_ALLOWED_2 = "http://127.0.0.1";
-	public static final String CORS_ALLOWED_4200 = "http://localhost:4200";
-	public static final String CORS_ALLOWED_4200_2 = "http://127.0.0.1:4200";
-	public static final String CORS_ALLOWED_80 = "http://localhost:80";
-	public static final String CORS_ALLOWED_80_2 = "http://127.0.0.1:80";
-	public static final String CORS_ALLOWED_AZURE  = "https://test-atl.azurewebsites.net";
-	public static final String CORS_ALLOWED_AZURE_80  = "https://test-atl.azurewebsites.net:80";
+	public static final String CORS_LOCALHOST = "http://localhost:4200"; 
+	// For Angular launch with default port and default host
+	public static final String CORS_LOOPBACK_ADDRESS = "http://127.0.0.1:4200"; 
+	//For Angular launched with the default port and loopback address
+	public static final String CORS_AZURE  = "https://test-atl.azurewebsites.net";
 
 	
 	// Addition for Grid 4 configuration. 
 	// Use of environment variables to pass a code quality check
 	public static final String CORS_ALLOWED_STATIC_12 = System.getenv("CORS_ALLOWED_STATIC_12");
+	// With a static IP, the default port used is 4200
 	public static final String CORS_ALLOWED_STATIC_15 = System.getenv("CORS_ALLOWED_STATIC_15");
 	public static final String CORS_ALLOWED_STATIC_16 = System.getenv("CORS_ALLOWED_STATIC_16");
 	
@@ -81,11 +79,8 @@ public class Configuration {
 		else
 		{
 			dbURL =  System.getenv("DB_URL");			
-		}
+		}		
 		
-		logInfoEnabled(logger, "Valeur de DB_URL: %s",dbURL );
-		logInfoEnabled(logger, "Valeur de DB_USERNAME: %s",dbUSERNAME);
-		logInfoEnabled(logger, "Valeur de DB_PASSWORD: %s",dbPASSWORD);
 		dataSourceBuilder.url(dbURL);	
 		dataSourceBuilder.username(dbUSERNAME);
 		dataSourceBuilder.password(dbPASSWORD);				
@@ -103,8 +98,7 @@ public class Configuration {
 			{	
 					
 				//Grid 4 				
-				String[] origins= {CORS_ALLOWED, CORS_ALLOWED_2,CORS_ALLOWED_80,CORS_ALLOWED_80_2,
-						CORS_ALLOWED_4200,CORS_ALLOWED_4200_2,CORS_ALLOWED_AZURE,CORS_ALLOWED_AZURE_80, 
+				String[] origins= {CORS_LOCALHOST, CORS_LOOPBACK_ADDRESS,CORS_AZURE, 
 						CORS_ALLOWED_STATIC_12,CORS_ALLOWED_STATIC_15,CORS_ALLOWED_STATIC_16};
 
 				
