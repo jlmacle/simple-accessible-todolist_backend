@@ -28,7 +28,7 @@ public class Configuration {
 	// For Angular launch with default port and default host
 	public static final String CORS_LOOPBACK_ADDRESS = "http://127.0.0.1:4200"; 
 	//For Angular launched with the default port and loopback address
-	public static final String CORS_AZURE  = "https://test-atl.azurewebsites.net";
+	public static final String CORS_AZURE  = "https://test-atl.azurewebsites.net:80";
 
 	
 	// Addition for Grid 4 configuration. 
