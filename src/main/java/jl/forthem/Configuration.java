@@ -24,12 +24,18 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableWebMvc
 public class Configuration {	
 	private static Logger logger = LoggerFactory.getLogger(Configuration.class);	
-	public static final String CORS_LOCALHOST = "http://localhost:4200"; 
-	// For Angular launch with default port and default host
-	public static final String CORS_LOOPBACK_ADDRESS = "http://127.0.0.1:4200"; 
-	//For Angular launched with the default port and loopback address
-	public static final String CORS_AZURE  = "https://test-atl.azurewebsites.net:80";
-
+	public static final String CORS_LOCALHOST_4200 = "http://localhost:4200"; 
+	// For Angular launch with default port and default host	
+	public static final String CORS_LOCALHOST_NO_PORT = "http://127.0.0.1";
+	// For the nginx server ran on local Docker images
+	//public static final String CORS_LOCALHOST_80 = "http://127.0.0.1:80"; 	
+	
+	
+	public static final String CORS_LOOPBACK_ADDRESS_4200 = "http://127.0.0.1:4200"; 
+	// For Angular launched with the default port and loopback address
+	
+	//public static final String CORS_AZURE  = "https://test-atl.azurewebsites.net:80";
+	public static final String CORS_AZURE_NO_PORT  = "https://test-atl.azurewebsites.net";
 	
 	// Addition for Grid 4 configuration. 
 	// Use of environment variables to pass a code quality check
@@ -98,7 +104,7 @@ public class Configuration {
 			{	
 					
 				//Grid 4 				
-				String[] origins= {CORS_LOCALHOST, CORS_LOOPBACK_ADDRESS,CORS_AZURE, 
+				String[] origins= {CORS_LOCALHOST_NO_PORT, CORS_LOCALHOST_4200, CORS_LOOPBACK_ADDRESS_4200,CORS_AZURE_NO_PORT, 
 						CORS_ALLOWED_STATIC_12,CORS_ALLOWED_STATIC_15,CORS_ALLOWED_STATIC_16};
 
 				
