@@ -8,6 +8,8 @@ import javax.sql.DataSource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.actuate.trace.http.HttpTraceRepository;
+import org.springframework.boot.actuate.trace.http.InMemoryHttpTraceRepository;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -28,14 +30,15 @@ public class Configuration {
 	// For Angular launch with default port and default host	
 	public static final String CORS_LOCALHOST_NO_PORT = "http://127.0.0.1";
 	// For the nginx server ran on local Docker images
-	//public static final String CORS_LOCALHOST_80 = "http://127.0.0.1:80"; 	
-	
-	
+		
 	public static final String CORS_LOOPBACK_ADDRESS_4200 = "http://127.0.0.1:4200"; 
 	// For Angular launched with the default port and loopback address
 	
-	//public static final String CORS_AZURE  = "https://test-atl.azurewebsites.net:80";
+	// Different 
+	public static final String CORS_AZURE_FRONTEND_HOSTNAME = "http://frontend";
+	public static final String CORS_AZURE_FRONTEND_HOSTNAME_HTTPS = "https://frontend";
 	public static final String CORS_AZURE_NO_PORT  = "https://test-atl.azurewebsites.net";
+	public static final String CORS_AZURE_80= "https://test-atl.azurewebsites.net:80";
 	
 	// Addition for Grid 4 configuration. 
 	// Use of environment variables to pass a code quality check
@@ -43,6 +46,8 @@ public class Configuration {
 	// With a static IP, the default port used is 4200
 	public static final String CORS_ALLOWED_STATIC_15 = System.getenv("CORS_ALLOWED_STATIC_15");
 	public static final String CORS_ALLOWED_STATIC_16 = System.getenv("CORS_ALLOWED_STATIC_16");
+	
+	public static final String CORS_ALLOWED_EXTERNAL_IP= "http://109.211.65.230";
 	
 		
 	/**
@@ -101,23 +106,28 @@ public class Configuration {
 		{	
 			@Override
 			public void addCorsMappings(CorsRegistry registry)
-			{	
+			{
 					
 				//Grid 4 				
-				String[] origins= {CORS_LOCALHOST_NO_PORT, CORS_LOCALHOST_4200, CORS_LOOPBACK_ADDRESS_4200,CORS_AZURE_NO_PORT, 
-						CORS_ALLOWED_STATIC_12,CORS_ALLOWED_STATIC_15,CORS_ALLOWED_STATIC_16};
+				String[] origins= {CORS_LOCALHOST_NO_PORT, CORS_LOCALHOST_4200, CORS_LOOPBACK_ADDRESS_4200,
+						CORS_AZURE_NO_PORT, CORS_AZURE_80,CORS_AZURE_FRONTEND_HOSTNAME,CORS_AZURE_FRONTEND_HOSTNAME_HTTPS,
+						CORS_ALLOWED_STATIC_12,CORS_ALLOWED_STATIC_15,CORS_ALLOWED_STATIC_16,
+						CORS_ALLOWED_EXTERNAL_IP};
 
 				
-				//Mappings for the CategoryController
-				registry.addMapping("/category").allowedOrigins(origins).allowedMethods("GET");
-				registry.addMapping("/category").allowedOrigins(origins);
-				registry.addMapping("/categories").allowedOrigins(origins).allowedMethods("GET");
+				//Mappings for the CategoryController				
+				registry.addMapping("/category").allowedOrigins(origins).allowedMethods("*");	
+				//registry.addMapping("/category").allowedOrigins(origins).allowedMethods("POST","OPTIONS");	
+				// Added OPTIONS for the preflight request.
+				// https://developer.mozilla.org/fr/docs/Web/HTTP/Methods/OPTIONS
+				//registry.addMapping("/categories").allowedOrigins(origins).allowedMethods("GET","OPTIONS");
+				registry.addMapping("/categories").allowedOrigins(origins).allowedMethods("*");
 				registry.addMapping("/category/{id}").allowedOrigins(origins).allowedMethods("DELETE");
 				registry.addMapping("/category/{name}").allowedOrigins(origins);
 				
 				//Mappings for the ItemController
 				registry.addMapping("/item/{id}").allowedOrigins(origins).allowedMethods("POST","DELETE");
-				registry.addMapping("/items").allowedOrigins(origins);			
+				registry.addMapping("/items").allowedOrigins(origins).allowedMethods("GET","OPTIONS");		
 				
 			}
 		};
@@ -134,6 +144,13 @@ public class Configuration {
 			//e.printStackTrace //suppressed to avoid a security hotspot.
 		}		
 		return secret;
+	}
+	
+	// Anish B.
+	// https://stackoverflow.com/questions/66064081/spring-webflux-2-4-2-404-on-actuator-auditevents-httptrace-integrationgraph
+	@Bean
+	public HttpTraceRepository htttpTraceRepository() {
+	  return new InMemoryHttpTraceRepository();
 	}
 		
 	public static void logInfoEnabled(Logger logger, String msg, String data)
