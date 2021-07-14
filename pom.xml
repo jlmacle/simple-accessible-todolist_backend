@@ -10,6 +10,8 @@
 
 	<properties>
 		<java.version>11</java.version>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
 	 	<sonar.projectKey>jlmacle_AccessibleTodoList_Backend</sonar.projectKey>
 	  	<sonar.organization>jlmacle</sonar.organization>
 	  	<sonar.host.url>https://sonarcloud.io</sonar.host.url>
@@ -68,7 +70,8 @@
 			<plugin>
 			    <groupId>org.springframework.boot</groupId>
 			    <artifactId>spring-boot-maven-plugin</artifactId>
-			    <configuration>
+			    <version>2.5.2</version>
+			    <configuration>				    
 			        <layers>
 			            <enabled>true</enabled>
 			        </layers>
