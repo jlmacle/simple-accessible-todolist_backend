@@ -34,7 +34,7 @@ public class Configuration {
 	public static final String CORS_LOOPBACK_ADDRESS_4200 = "http://127.0.0.1:4200"; 
 	// For Angular launched with the default port and loopback address
 	
-	// Different 
+	// test in progress to find the reason of a CORS issue.
 	public static final String CORS_AZURE_FRONTEND_HOSTNAME = "http://frontend";
 	public static final String CORS_AZURE_FRONTEND_HOSTNAME_HTTPS = "https://frontend";
 	public static final String CORS_AZURE_NO_PORT  = "https://test-atl.azurewebsites.net";
@@ -47,7 +47,7 @@ public class Configuration {
 	public static final String CORS_ALLOWED_STATIC_15 = System.getenv("CORS_ALLOWED_STATIC_15");
 	public static final String CORS_ALLOWED_STATIC_16 = System.getenv("CORS_ALLOWED_STATIC_16");
 	
-	public static final String CORS_ALLOWED_EXTERNAL_IP= "http://109.211.65.230";
+	
 	
 		
 	/**
@@ -111,8 +111,7 @@ public class Configuration {
 				//Grid 4 				
 				String[] origins= {CORS_LOCALHOST_NO_PORT, CORS_LOCALHOST_4200, CORS_LOOPBACK_ADDRESS_4200,
 						CORS_AZURE_NO_PORT, CORS_AZURE_80,CORS_AZURE_FRONTEND_HOSTNAME,CORS_AZURE_FRONTEND_HOSTNAME_HTTPS,
-						CORS_ALLOWED_STATIC_12,CORS_ALLOWED_STATIC_15,CORS_ALLOWED_STATIC_16,
-						CORS_ALLOWED_EXTERNAL_IP};
+						CORS_ALLOWED_STATIC_12,CORS_ALLOWED_STATIC_15,CORS_ALLOWED_STATIC_16};
 
 				
 				//Mappings for the CategoryController				
