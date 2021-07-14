@@ -43,15 +43,4 @@ echo "Waiting for the stack to be built."
 echo "* Starting Chromium to check on the result."
 chromium-browser http://127.0.0.1:8080 & chromium-browser http://127.0.0.1/index.html &
 
-echo "* Clearing the code from the surefire-reports folder."
-#-------------------------------------------------------------------------------------------------------
-# Cleaning the code 
-#-------------------------------------------------------------------------------------------------------
-echo "mvn clean"
-echo "The value of an apiKey stored in an environment variable has been dumped and later pushed on GitHub."
-echo "The dump file was in the surefire-reports folder. "
-echo "mvn clean suppresses the surefire reports. "
-mvn clean
-
-
 
