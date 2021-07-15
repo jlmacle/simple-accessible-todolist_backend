@@ -1,5 +1,8 @@
 echo "* Removing potential stack_backend service."
 sudo docker service rm stack_backend 2> /dev/null
+echo "* Removing potential stack_postgresql service,
+ to use the Docker PostgreSQL service with the parameters known to succeed."
+sudo docker service rm stack_postgresql 2> /dev/null
 
 echo "* Testing if a Docker PostgreSQL service is already running."
 noAtlPostgresServiceFound=$(sudo docker service ls | grep atl-postgres)
