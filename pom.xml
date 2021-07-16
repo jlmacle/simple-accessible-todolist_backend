@@ -12,6 +12,7 @@
 		<java.version>11</java.version>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	 	<sonar.projectKey>jlmacle_AccessibleTodoList_Backend</sonar.projectKey>
 	  	<sonar.organization>jlmacle</sonar.organization>
 	  	<sonar.host.url>https://sonarcloud.io</sonar.host.url>
