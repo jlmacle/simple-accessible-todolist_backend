@@ -6,9 +6,9 @@
 	<artifactId>accessible-todo-list_back-end</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>AccessibleTodoList_BackEnd</name>
-	<description>Back end for simple accessible todo list.</description>
+	<description>Back end for a simple accessible todo list.</description>
 
-	<properties>
+	<properties>		
 		<java.version>11</java.version>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
@@ -19,11 +19,6 @@
 	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
-			<version>2.5.2</version>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-loader</artifactId>
@@ -72,12 +67,12 @@
 			    <groupId>org.springframework.boot</groupId>
 			    <artifactId>spring-boot-maven-plugin</artifactId>
 			    <version>2.5.2</version>
-			    <configuration>				    
+			    <configuration>					    		    		    
 			        <layers>
 			            <enabled>true</enabled>
 			        </layers>
 			    </configuration>				
-			</plugin>
+			</plugin>			
 		</plugins>
 	</build>
 
