@@ -1,7 +1,6 @@
-echo "* Removing potential stack_backend service."
+echo "* Removing potential stack_backend service using port 8080."
 sudo docker service rm stack_backend 2> /dev/null
-echo "* Removing potential stack_postgresql service,
- to use the Docker PostgreSQL service with the parameters known to succeed."
+echo "* Removing potential stack_postgresql service."
 sudo docker service rm stack_postgresql 2> /dev/null
 
 echo "* Testing if a Docker PostgreSQL service is already running."
