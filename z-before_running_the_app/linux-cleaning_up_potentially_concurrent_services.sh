@@ -3,7 +3,7 @@ sudo docker service rm stack_backend 2> /dev/null
 echo "** Removing potential stack_postgresql service using port 5432.**"
 sudo docker service rm stack_postgresql 2> /dev/null
 
-echo "** Testing if a Docker PostgreSQL service is already running. **"
+echo "** Testing if a Docker atl-postgres service is already running. **"
 noAtlPostgresServiceFound=$(sudo docker service ls | grep atl-postgres)
 
 # https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Conditional-Constructs
