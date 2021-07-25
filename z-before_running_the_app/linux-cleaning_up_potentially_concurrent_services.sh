@@ -11,7 +11,7 @@ noAtlPostgresServiceFound=$(sudo docker service ls | grep atl-postgres)
 # -z string: True if the length of string is zero.
 if  [ -z "$noAtlPostgresServiceFound" ];
 	then
-		echo "***** No Docker PostgreSQL service is running. Starting a Docker PostgreSQL service."
+		echo "***** No Docker atl-postgres service is running. Starting a Docker PostgreSQL service."
 		sudo docker service create --publish published=5432,target=5432 \
 		--secret POSTGRES_PASSWORD -e POSTGRES_PASSWORD_FILE=/run/secrets/POSTGRES_PASSWORD \
 		--secret POSTGRES_USER -e POSTGRES_USER_FILE=/run/secrets/POSTGRES_USER \
@@ -19,5 +19,5 @@ if  [ -z "$noAtlPostgresServiceFound" ];
 		--name atl-postgres postgres:alpine		
 		
 	else
-		echo "***** A Docker PostgreSQL service is already running."			
+		echo "***** A Docker atl-postgres service is already running."			
 fi
