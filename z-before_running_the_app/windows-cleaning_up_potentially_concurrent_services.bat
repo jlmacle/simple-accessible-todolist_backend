@@ -15,25 +15,25 @@ timeout /T 60
 ::--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 :: Script testing
 :: Creation of stack_backend and stack_postgresql services
-::echo -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-::echo ** Creation of stack_backend and stack_postgresql services for script testing purposes.
-::docker stack deploy -c ../z_docker_compose_files/docker-compose-stack-localImages.yml stack
+:: echo -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+:: echo ** Creation of stack_backend and stack_postgresql services for script testing purposes.
+:: docker stack deploy -c ../z_docker_compose_files/docker-compose-stack-localImages.yml stack
 
-::echo ** Creation of atl-back-end and atl-postgres services for script testing purposes.
-::docker service create --network atl-network --hostname postgresql ^
-::--publish  published=5432,target=5432 ^
-::--secret POSTGRES_PASSWORD -e POSTGRES_PASSWORD_FILE=/run/secrets/POSTGRES_PASSWORD ^
-::--secret POSTGRES_USER -e POSTGRES_USER_FILE=/run/secrets/POSTGRES_USER ^
-::--secret POSTGRES_DB -e POSTGRES_DB_FILE=/run/secrets/POSTGRES_DB ^
-::--name atl-postgres postgres:alpine
+:: echo ** Creation of atl-back-end and atl-postgres services for script testing purposes.
+:: docker service create --network atl-network --hostname postgresql ^
+:: --publish  published=5432,target=5432 ^
+:: --secret POSTGRES_PASSWORD -e POSTGRES_PASSWORD_FILE=/run/secrets/POSTGRES_PASSWORD ^
+:: --secret POSTGRES_USER -e POSTGRES_USER_FILE=/run/secrets/POSTGRES_USER ^
+:: --secret POSTGRES_DB -e POSTGRES_DB_FILE=/run/secrets/POSTGRES_DB ^
+:: --name atl-postgres postgres:alpine
 
-::docker service create --network atl-network --hostname backend ^
-::--publish published=8080,target=8080 ^
-::--secret POSTGRES_PASSWORD -e POSTGRES_PASSWORD_FILE=/run/secrets/POSTGRES_PASSWORD ^
-::--secret POSTGRES_USER -e POSTGRES_USER_FILE=/run/secrets/POSTGRES_USER ^
-::--secret POSTGRES_DB -e POSTGRES_DB_FILE=/run/secrets/POSTGRES_DB ^
-::--secret DB_JDBC_ROOT -e DB_JDBC_ROOT_FILE=/run/secrets/DB_JDBC_ROOT ^
-::--name atl-back-end atl-back-end:v0.9
+:: docker service create --network atl-network --hostname backend ^
+:: --publish published=8080,target=8080 ^
+:: --secret POSTGRES_PASSWORD -e POSTGRES_PASSWORD_FILE=/run/secrets/POSTGRES_PASSWORD ^
+:: --secret POSTGRES_USER -e POSTGRES_USER_FILE=/run/secrets/POSTGRES_USER ^
+:: --secret POSTGRES_DB -e POSTGRES_DB_FILE=/run/secrets/POSTGRES_DB ^
+:: --secret DB_JDBC_ROOT -e DB_JDBC_ROOT_FILE=/run/secrets/DB_JDBC_ROOT ^
+:: --name atl-back-end atl-back-end:v0.9
 
 :: End of script testing code
 ::--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
