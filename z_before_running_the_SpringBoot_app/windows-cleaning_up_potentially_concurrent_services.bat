@@ -19,9 +19,9 @@ timeout /T 60
 ::echo ** Creation of stack_backend and stack_postgresql services for script testing purposes.
 ::docker stack deploy -c ../z_docker_compose_files/docker-compose-stack-localImages.yml stack
 
-::echo ** Creation of atl-network, atl-back-end and atl-postgres services for script testing purposes.
+echo ** Creation of atl-network, atl-back-end and atl-postgres services for script testing purposes.
 
-::docker network create --driver overlay atl-network 2> NUL
+docker network create --driver overlay atl-network 2> NUL
 
 ::docker service create --network atl-network --hostname postgresql ^
 ::--publish  published=5432,target=5432 ^
@@ -48,3 +48,7 @@ echo ---------------------------------------------------------------------------
 echo ** Removing potential atl-postgres and atl-backend services. **
 docker service rm atl-postgres 2> NUL
 docker service rm atl-back-end 2> NUL
+
+echo -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+echo ** Waiting for the PostgreSQL Windows service to be ready to accept connections. **
+timeout /T 60
