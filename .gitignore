@@ -1,5 +1,5 @@
 HELP.md
-target/*
+target/**/*.*
 #z_build_script/context/*.jar
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
@@ -32,3 +32,4 @@ build/
 
 ### VS Code ###
 .vscode/
+/target/
