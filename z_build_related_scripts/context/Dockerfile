@@ -1,3 +1,6 @@
+# Credit: Baeldung
+# https://www.baeldung.com/spring-boot-docker-images
+
 FROM adoptopenjdk:11-jre-hotspot as builder
 ARG JAR_FILE=*.jar
 COPY ${JAR_FILE} application.jar
