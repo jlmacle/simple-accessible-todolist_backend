@@ -23,9 +23,6 @@ echo "**** Login to Docker if necessary."
 sudo docker login
 
 echo "**** Building the Docker image with spring-boot:build-image."
-# sudo added to fix the following exception.
-# I/O exception (java.io.IOException) caught when processing request to {}->docker://localhost:2376
-# : com.sun.jna.LastErrorException: [13] Permission denied
 sudo mvn spring-boot:build-image
 
 echo "**** Re-taging the Docker image"
