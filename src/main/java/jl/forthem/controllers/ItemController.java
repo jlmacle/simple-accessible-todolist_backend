@@ -26,7 +26,7 @@ public class ItemController {
 	
 	@PostMapping("/item/{id}")
 	public Item addItem(@RequestBody ItemDTO itemDto, @PathVariable("id")Integer categoryId) {
-		String data = itemDto.toString();
+		String data = itemDto.toString();//
 		data = data.replaceAll("[\n\r]","_");
 		if (logger.isDebugEnabled()) {logger.debug(String.format("Adding the item: %s to the category id: %s",data,categoryId));}		
 		Item addedItem = new Item(itemDto.getName(), categoryId);	
