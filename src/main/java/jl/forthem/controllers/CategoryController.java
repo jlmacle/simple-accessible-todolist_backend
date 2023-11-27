@@ -37,7 +37,12 @@ public class CategoryController {
 	public Category addCategory(@RequestBody CategoryDTO categoryDto) 
 	{
 		
-		if (logger.isDebugEnabled()) {logger.debug(String.format("Adding category: %s ",categoryDto.toString()));}
+		if (logger.isDebugEnabled()) 
+		{
+			String data = categoryDto.toString();
+			data = data.replaceAll("[\n\r]","_");
+			logger.debug(String.format("Adding category: %s ",data));
+		}
 		Category category = new Category();
 		category.setId(categoryDto.getId());
 		category.setName(categoryDto.getName());
