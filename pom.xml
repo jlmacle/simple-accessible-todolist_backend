@@ -4,9 +4,15 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>jl.forthem</groupId>
 	<artifactId>accessible-todo-list_back-end</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>AccessibleTodoList_BackEnd</name>
+	<version>v0.1</version>
+	<name>Accessible Todo List: BackEnd</name>
 	<description>Back end for a simple accessible todo list.</description>
+
+	<licenses>
+        <license>
+            <name>MIT</name>
+        </license>
+    </licenses>
 
 	<properties>		
 		<java.version>11</java.version>
